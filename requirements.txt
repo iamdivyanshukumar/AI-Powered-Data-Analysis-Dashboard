@@ -1,0 +1,9 @@
+flask
+flask-login
+flask-sqlalchemy
+python-dotenv
+pandas
+plotly
+openai
+werkzeug
+gunicorn

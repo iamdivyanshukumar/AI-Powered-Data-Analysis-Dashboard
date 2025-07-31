@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Upload Data{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Upload CSV File</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data" action="{{ url_for('dashboard.upload') }}">
+                    <div class="mb-3">
+                        <label for="file" class="form-label">Select CSV File</label>
+                        <input class="form-control" type="file" id="file" name="file" accept=".csv" required>
+                        <div class="form-text">Maximum file size: 16MB</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-upload"></i> Upload & Analyze
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

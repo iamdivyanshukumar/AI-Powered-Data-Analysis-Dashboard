@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Analysis Session{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Analysis: {{ session.filename }}</h2>
+    <small class="text-muted">{{ session.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+</div>
+
+{% for viz in visualizations %}
+<div class="viz-container mb-4">
+    <div class="row">
+        <div class="col-md-8">
+            <h5 class="mb-3">
+                {{ viz.graph_type|title }}: {{ viz.x_column }}
+                {% if viz.y_column %} vs {{ viz.y_column }}{% endif %}
+            </h5>
+            <div class="graph-container">
+                {{ viz.graph_path|safe }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="insights-card">
+                <h6><i class="bi bi-lightbulb"></i> Insights</h6>
+                <p>{{ viz.insights }}</p>
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-outline-primary btn-sm">
+                    <i class="bi bi-download"></i> Download PNG
+                </button>
+                <button class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-share"></i> Share
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<a href="{{ url_for('dashboard.index') }}" class="btn btn-outline-primary">
+    <i class="bi bi-arrow-left"></i> Back to Dashboard
+</a>
+{% endblock %}
