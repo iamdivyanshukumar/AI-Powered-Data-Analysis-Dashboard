@@ -1,5 +1,9 @@
+# app/utils/data_utils.py - UPDATED (FIXED WARNINGS)
 import pandas as pd
-from typing import List, Dict
+import numpy as np
+from typing import List, Dict, Tuple
+from sklearn.preprocessing import LabelEncoder
+import json
 
 def validate_csv(filename: str) -> bool:
     """Validate that the file has a CSV extension."""
@@ -30,21 +34,73 @@ def get_column_info(df: pd.DataFrame) -> List[Dict[str, str]]:
     
     return column_info
 
-def clean_dataframe(df: pd.DataFrame) -> pd.DataFrame:
-    """Basic data cleaning for the uploaded CSV."""
+def clean_dataframe(df: pd.DataFrame) -> Tuple[pd.DataFrame, Dict]:
+    """
+    Comprehensive data cleaning for the uploaded CSV.
+    
+    Returns:
+        Tuple of (cleaned DataFrame, encoding mappings)
+    """
+    # Make a copy to avoid modifying original
+    df_clean = df.copy()
+    encoding_mappings = {}
+    
     # Drop duplicate rows
-    df = df.drop_duplicates()
+    df_clean = df_clean.drop_duplicates()
     
-    # Convert object columns to categorical if they have low cardinality
-    for col in df.select_dtypes(include=['object']):
-        if len(df[col].unique()) < 50:
-            df[col] = df[col].astype('category')
+    # Fill missing values - fixed to avoid in-place operations on copies
+    for col in df_clean.columns:
+        if pd.api.types.is_numeric_dtype(df_clean[col]):
+            # Fill numerical columns with median
+            median_val = df_clean[col].median()
+            df_clean[col] = df_clean[col].fillna(median_val)
+        else:
+            # Fill categorical columns with mode
+            mode_val = df_clean[col].mode()
+            fill_value = mode_val[0] if not mode_val.empty else "Unknown"
+            df_clean[col] = df_clean[col].fillna(fill_value)
     
-    # Convert datetime strings if possible
-    for col in df.select_dtypes(include=['object']):
-        try:
-            df[col] = pd.to_datetime(df[col])
-        except (ValueError, TypeError):
-            pass
+    # Encode categorical columns using label encoding and store mappings
+    le = LabelEncoder()
+    categorical_cols = df_clean.select_dtypes(include=['object']).columns
     
-    return df
+    for col in categorical_cols:
+        # Store original values before encoding
+        df_clean[col] = df_clean[col].astype(str)
+        df_clean[col] = le.fit_transform(df_clean[col])
+        
+        # Create mapping dictionary
+        encoding_mappings[col] = {
+            int(encoded): str(original) 
+            for encoded, original in zip(le.transform(le.classes_), le.classes_)
+        }
+    
+    return df_clean, encoding_mappings
+
+def get_dataset_stats(df: pd.DataFrame) -> Dict:
+    """Get comprehensive statistics about the dataset."""
+    # Convert DataFrame to JSON-serializable format
+    head_data = {}
+    for col in df.columns:
+        head_data[col] = df[col].head().tolist()
+    
+    describe_data = {}
+    if not df.select_dtypes(include=[np.number]).empty:
+        desc = df.describe()
+        for stat in desc.index:
+            describe_data[stat] = desc.loc[stat].tolist()
+    
+    stats = {
+        'shape': list(df.shape),
+        'total_null_values': int(df.isnull().sum().sum()),
+        'column_null_values': df.isnull().sum().to_dict(),
+        'dtypes': df.dtypes.astype(str).to_dict(),
+        'head': head_data,
+        'describe': describe_data,
+        'info': {
+            'columns': list(df.columns),
+            'non_null_counts': df.count().to_dict(),
+            'memory_usage': int(df.memory_usage(deep=True).sum())
+        }
+    }
+    return stats

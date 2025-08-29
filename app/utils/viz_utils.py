@@ -1,7 +1,8 @@
-import plotly.express as px
-import plotly.graph_objects as go
-from plotly.offline import plot
+# app/utils/viz_utils.py - UPDATED
+import matplotlib.pyplot as plt
 import pandas as pd
+import io
+import base64
 from typing import Optional
 import logging
 
@@ -18,88 +19,99 @@ def generate_visualization(df: pd.DataFrame, graph_type: str, x_col: str, y_col:
         y_col: Column for y-axis (optional)
         
     Returns:
-        HTML string of the generated visualization
+        Base64 encoded image string of the generated visualization
     """
     # Validate input data
     if df.empty or x_col not in df.columns:
-        return _generate_error_figure("Invalid data or columns")
+        return _generate_error_image("Invalid data or columns")
     
     if y_col and y_col not in df.columns:
-        return _generate_error_figure(f"Y-axis column '{y_col}' not found in data")
+        return _generate_error_image(f"Y-axis column '{y_col}' not found in data")
 
     try:
-        # Clean data - convert strings to numeric where possible
-        df = _clean_data(df, x_col, y_col)
-        
-        # Generate appropriate visualization
+        # Create the appropriate visualization
         fig = _create_figure(df, graph_type, x_col, y_col)
         
-        # Customize layout
-        fig.update_layout(
-            margin=dict(l=20, r=20, t=40, b=20),
-            paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="rgba(0,0,0,0)",
-            font=dict(size=10)
-        )
+        # Convert to base64 for HTML embedding
+        buf = io.BytesIO()
+        plt.savefig(buf, format='png', bbox_inches='tight', dpi=100)
+        plt.close(fig)
+        buf.seek(0)
+        image_base64 = base64.b64encode(buf.read()).decode('utf-8')
         
-        return plot(fig, output_type='div', include_plotlyjs=False)
+        return f"data:image/png;base64,{image_base64}"
     
     except Exception as e:
         logger.error(f"Error generating visualization: {str(e)}", exc_info=True)
-        return _generate_error_figure(f"Error generating visualization: {str(e)}")
+        return _generate_error_image(f"Error generating visualization: {str(e)}")
 
-def _clean_data(df: pd.DataFrame, x_col: str, y_col: Optional[str]) -> pd.DataFrame:
-    """Clean and prepare data for visualization."""
-    # Make a copy to avoid modifying original dataframe
-    df = df.copy()
-    
-    # Convert to numeric if possible
-    for col in [x_col, y_col]:
-        if col and pd.api.types.is_string_dtype(df[col]):
-            try:
-                df[col] = pd.to_numeric(df[col], errors='ignore')
-            except Exception:
-                pass
-    
-    # Drop rows with NaN values in relevant columns
-    cols_to_check = [x_col]
-    if y_col:
-        cols_to_check.append(y_col)
-    df = df.dropna(subset=cols_to_check)
-    
-    return df
-
-def _create_figure(df: pd.DataFrame, graph_type: str, x_col: str, y_col: Optional[str]) -> go.Figure:
+def _create_figure(df: pd.DataFrame, graph_type: str, x_col: str, y_col: Optional[str]) -> plt.Figure:
     """Create the appropriate figure based on graph type."""
+    fig, ax = plt.subplots(figsize=(8, 6))
+    
     if graph_type == 'scatter' and y_col:
-        return px.scatter(df, x=x_col, y=y_col, title=f"{y_col} vs {x_col}")
+        ax.scatter(df[x_col], df[y_col])
+        ax.set_xlabel(x_col)
+        ax.set_ylabel(y_col)
+        ax.set_title(f"{y_col} vs {x_col}")
     elif graph_type == 'line' and y_col:
-        return px.line(df, x=x_col, y=y_col, title=f"{y_col} over {x_col}")
+        ax.plot(df[x_col], df[y_col])
+        ax.set_xlabel(x_col)
+        ax.set_ylabel(y_col)
+        ax.set_title(f"{y_col} over {x_col}")
     elif graph_type == 'bar' and y_col:
-        return px.bar(df, x=x_col, y=y_col, title=f"{y_col} by {x_col}")
+        # For bar charts, we might need to aggregate if there are too many unique values
+        if df[x_col].nunique() > 20:
+            # Sample or bin the data
+            sample_df = df.groupby(x_col)[y_col].mean().reset_index().head(20)
+            ax.bar(sample_df[x_col].astype(str), sample_df[y_col])
+        else:
+            ax.bar(df[x_col].astype(str), df[y_col])
+        ax.set_xlabel(x_col)
+        ax.set_ylabel(y_col)
+        ax.set_title(f"{y_col} by {x_col}")
+        plt.xticks(rotation=45)
     elif graph_type == 'histogram':
-        return px.histogram(df, x=x_col, title=f"Distribution of {x_col}")
-    elif graph_type == 'pie':
-        return px.pie(df, names=x_col, title=f"Proportion of {x_col}")
+        ax.hist(df[x_col].dropna(), bins=20)
+        ax.set_xlabel(x_col)
+        ax.set_ylabel('Frequency')
+        ax.set_title(f"Distribution of {x_col}")
     elif graph_type == 'box' and y_col:
-        return px.box(df, x=x_col, y=y_col, title=f"Distribution of {y_col} by {x_col}")
+        # For box plots, we might need to limit categories
+        if df[x_col].nunique() > 10:
+            # Get top 10 categories by count
+            top_categories = df[x_col].value_counts().head(10).index
+            filtered_df = df[df[x_col].isin(top_categories)]
+            filtered_df.boxplot(column=y_col, by=x_col, ax=ax)
+        else:
+            df.boxplot(column=y_col, by=x_col, ax=ax)
+        ax.set_title(f"Distribution of {y_col} by {x_col}")
+        plt.xticks(rotation=45)
     else:
         # Default to histogram if graph type not recognized
-        return px.histogram(df, x=x_col, title=f"Distribution of {x_col}")
+        ax.hist(df[x_col].dropna(), bins=20)
+        ax.set_xlabel(x_col)
+        ax.set_ylabel('Frequency')
+        ax.set_title(f"Distribution of {x_col}")
+    
+    return fig
 
-def _generate_error_figure(message: str) -> str:
-    """Generate an error figure with the given message."""
-    error_fig = go.Figure()
-    error_fig.add_annotation(
-        text=message,
-        xref="paper", yref="paper",
-        x=0.5, y=0.5, showarrow=False,
-        font=dict(size=16, color="red")
-    )
-    error_fig.update_layout(
-        xaxis={"visible": False},
-        yaxis={"visible": False},
-        plot_bgcolor="rgba(0,0,0,0)",
-        paper_bgcolor="rgba(0,0,0,0)"
-    )
-    return plot(error_fig, output_type='div', include_plotlyjs=False)
+def _generate_error_image(message: str) -> str:
+    """Generate an error image with the given message."""
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.text(0.5, 0.5, message, 
+            horizontalalignment='center', 
+            verticalalignment='center', 
+            transform=ax.transAxes,
+            fontsize=16,
+            color='red')
+    ax.set_axis_off()
+    
+    # Convert to base64
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png', bbox_inches='tight')
+    plt.close(fig)
+    buf.seek(0)
+    image_base64 = base64.b64encode(buf.read()).decode('utf-8')
+    
+    return f"data:image/png;base64,{image_base64}"

@@ -1,3 +1,4 @@
+# app/dashboard/models.py - UPDATED
 from app import db
 from flask_login import current_user
 from datetime import datetime
@@ -9,6 +10,8 @@ class AnalysisSession(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     filename = db.Column(db.String(256))
+    dataset_stats = db.Column(db.Text)  # Store dataset statistics as JSON
+    encoding_mappings = db.Column(db.Text)  # Store encoding mappings as JSON
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     visualizations = db.relationship('Visualization', backref='session', lazy=True)
 

@@ -6,4 +6,6 @@ pandas
 plotly
 openai
 werkzeug
+matplotlib
+scikit-learn
 gunicorn

@@ -1,0 +1,208 @@
+<!-- templates/dashboard/dataset_info.html - UPDATED (WITH ERROR HANDLING) -->
+{% extends "base.html" %}
+
+{% block title %}Dataset Information - {{ session.filename }}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Dataset Information: {{ session.filename }}</h2>
+    <div>
+        <a href="{{ url_for('dashboard.view_session', session_id=session.id) }}" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left"></i> Back to Visualizations
+        </a>
+        <a href="{{ url_for('dashboard.index') }}" class="btn btn-outline-secondary">
+            <i class="bi bi-house"></i> Dashboard
+        </a>
+    </div>
+</div>
+
+{% if not dataset_stats %}
+<div class="alert alert-warning">
+    No dataset information available for this session.
+</div>
+{% else %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Dataset Overview</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h6>Shape</h6>
+                                <h4>{{ dataset_stats.shape[0] }} × {{ dataset_stats.shape[1] }}</h4>
+                                <small class="text-muted">Rows × Columns</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h6>Total Null Values</h6>
+                                <h4>{{ dataset_stats.total_null_values }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h6>Memory Usage</h6>
+                                <h4>{{ (dataset_stats.info.memory_usage / 1024) | round(2) }} KB</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h6>Columns</h6>
+                                <h4>{{ dataset_stats.shape[1] }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Data Types</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Column</th>
+                                <th>Data Type</th>
+                                <th>Non-Null Count</th>
+                                <th>Null Values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for column in dataset_stats.info.columns %}
+                            <tr>
+                                <td>{{ column }}</td>
+                                <td><span class="badge bg-secondary">{{ dataset_stats.dtypes[column] }}</span></td>
+                                <td>{{ dataset_stats.info.non_null_counts[column] }}</td>
+                                <td>
+                                    {% if dataset_stats.column_null_values[column] > 0 %}
+                                    <span class="badge bg-warning">{{ dataset_stats.column_null_values[column] }}</span>
+                                    {% else %}
+                                    <span class="badge bg-success">0</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">First 5 Rows</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                {% for column in dataset_stats.info.columns %}
+                                <th>{{ column }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in range(5) %}
+                            <tr>
+                                {% for column in dataset_stats.info.columns %}
+                                <td>{{ dataset_stats.head[column][i] }}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        {% if dataset_stats.describe %}
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Statistical Summary</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Statistic</th>
+                                {% for column in dataset_stats.info.columns if dataset_stats.dtypes[column] in ['int64', 'float64'] %}
+                                <th>{{ column }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for stat in ['count', 'mean', 'std', 'min', '25%', '50%', '75%', 'max'] %}
+                            {% if stat in dataset_stats.describe %}
+                            <tr>
+                                <td><strong>{{ stat }}</strong></td>
+                                {% for column in dataset_stats.info.columns if dataset_stats.dtypes[column] in ['int64', 'float64'] %}
+                                <td>
+                                    {% set col_index = loop.index0 %}
+                                    {% if col_index < dataset_stats.describe[stat] | length %}
+                                    {{ dataset_stats.describe[stat][col_index] | round(2) }}
+                                    {% endif %}
+                                </td>
+                                {% endfor %}
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if encoding_mappings %}
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Encoding Mappings</h5>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">Categorical columns were encoded using label encoding for visualization.</p>
+                {% for column, mapping in encoding_mappings.items() %}
+                <div class="mb-3">
+                    <h6>Column: {{ column }}</h6>
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Encoded Value</th>
+                                    <th>Original Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for encoded_value, original_value in mapping.items() %}
+                                <tr>
+                                    <td><span class="badge bg-primary">{{ encoded_value }}</span></td>
+                                    <td>{{ original_value }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

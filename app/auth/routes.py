@@ -1,3 +1,4 @@
+# app/auth/routes.py - UPDATED
 from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -31,18 +32,26 @@ def signup():
         email = request.form.get('email')
         password = request.form.get('password')
         
-        user = User.query.filter_by(username=username).first()
-        
-        if user:
+        # Check if username already exists
+        user_by_username = User.query.filter_by(username=username).first()
+        if user_by_username:
             flash('Username already exists')
             return redirect(url_for('auth.signup'))
         
+        # Check if email already exists
+        user_by_email = User.query.filter_by(email=email).first()
+        if user_by_email:
+            flash('Email address already registered')
+            return redirect(url_for('auth.signup'))
+        
+        # Create new user
         new_user = User(username=username, email=email)
         new_user.set_password(password)
         
         db.session.add(new_user)
         db.session.commit()
         
+        flash('Account created successfully! Please log in.')
         return redirect(url_for('auth.login'))
     
     return render_template('auth/register.html')
