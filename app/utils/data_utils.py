@@ -1,9 +1,11 @@
-# app/utils/data_utils.py - UPDATED (FIXED WARNINGS)
 import pandas as pd
 import numpy as np
 from typing import List, Dict, Tuple
 from sklearn.preprocessing import LabelEncoder
 import json
+import logging
+
+logger = logging.getLogger(__name__)
 
 def validate_csv(filename: str) -> bool:
     """Validate that the file has a CSV extension."""
@@ -78,29 +80,47 @@ def clean_dataframe(df: pd.DataFrame) -> Tuple[pd.DataFrame, Dict]:
     return df_clean, encoding_mappings
 
 def get_dataset_stats(df: pd.DataFrame) -> Dict:
-    """Get comprehensive statistics about the dataset."""
-    # Convert DataFrame to JSON-serializable format
-    head_data = {}
-    for col in df.columns:
-        head_data[col] = df[col].head().tolist()
-    
-    describe_data = {}
-    if not df.select_dtypes(include=[np.number]).empty:
-        desc = df.describe()
-        for stat in desc.index:
-            describe_data[stat] = desc.loc[stat].tolist()
-    
-    stats = {
-        'shape': list(df.shape),
-        'total_null_values': int(df.isnull().sum().sum()),
-        'column_null_values': df.isnull().sum().to_dict(),
-        'dtypes': df.dtypes.astype(str).to_dict(),
-        'head': head_data,
-        'describe': describe_data,
-        'info': {
-            'columns': list(df.columns),
-            'non_null_counts': df.count().to_dict(),
-            'memory_usage': int(df.memory_usage(deep=True).sum())
+    """Get comprehensive statistics about the dataset. Always returns a dict."""
+    try:
+        # Convert DataFrame to JSON-serializable format
+        head_data = {}
+        for col in df.columns:
+            head_data[col] = df[col].head().tolist()
+        
+        describe_data = {}
+        if not df.select_dtypes(include=[np.number]).empty:
+            desc = df.describe()
+            for stat in desc.index:
+                describe_data[stat] = desc.loc[stat].tolist()
+        
+        stats = {
+            'shape': list(df.shape),
+            'total_null_values': int(df.isnull().sum().sum()),
+            'column_null_values': df.isnull().sum().to_dict(),
+            'dtypes': df.dtypes.astype(str).to_dict(),
+            'head': head_data,
+            'describe': describe_data,
+            'info': {
+                'columns': list(df.columns),
+                'non_null_counts': df.count().to_dict(),
+                'memory_usage': int(df.memory_usage(deep=True).sum())
+            }
         }
-    }
-    return stats
+        return stats
+        
+    except Exception as e:
+        logger.error(f"Error generating dataset stats: {str(e)}")
+        # Return minimal stats on error
+        return {
+            'shape': list(df.shape) if hasattr(df, 'shape') else [0, 0],
+            'total_null_values': 0,
+            'column_null_values': {},
+            'dtypes': {},
+            'head': {},
+            'describe': {},
+            'info': {
+                'columns': list(df.columns) if hasattr(df, 'columns') else [],
+                'non_null_counts': {},
+                'memory_usage': 0
+            }
+        }

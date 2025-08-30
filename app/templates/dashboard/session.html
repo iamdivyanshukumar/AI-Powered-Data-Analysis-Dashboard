@@ -1,35 +1,65 @@
 <!-- templates/dashboard/session.html - UPDATED -->
 {% extends "base.html" %}
 
-{% block title %}Analysis Session{% endblock %}
+{% block title %}Analysis Session - {{ session.filename }}{% endblock %}
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2>Analysis: {{ session.filename }}</h2>
     <div>
-        <a href="{{ url_for('dashboard.dataset_info', session_id=session.id) }}" class="btn btn-info btn-sm">
+        <h2 class="gradient-text">{{ session.filename }}</h2>
+        <p class="text-muted mb-0">Analyzed on {{ session.created_at.strftime('%B %d, %Y at %H:%M') }}</p>
+    </div>
+    <div>
+        <a href="{{ url_for('dashboard.dataset_info', session_id=session.id) }}" class="btn btn-outline-secondary btn-sm">
             <i class="bi bi-info-circle"></i> Dataset Info
         </a>
-        <small class="text-muted ms-2">{{ session.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+        <a href="{{ url_for('dashboard.index') }}" class="btn btn-outline-primary btn-sm ms-1">
+            <i class="bi bi-arrow-left"></i> Back
+        </a>
     </div>
 </div>
 
-{% for viz in visualizations %}
-<div class="viz-container mb-4">
+{% if not visualizations %}
+<div class="card">
+    <div class="card-body text-center py-5">
+        <i class="bi bi-bar-chart-line display-1 text-muted"></i>
+        <h4 class="text-muted mt-3">No Visualizations Generated</h4>
+        <p class="text-muted">There was an issue generating visualizations for this dataset.</p>
+        <a href="{{ url_for('dashboard.upload') }}" class="btn btn-primary mt-2">
+            <i class="bi bi-upload"></i> Try Another File
+        </a>
+    </div>
+</div>
+{% else %}
+<!-- Suggested Visualizations (with AI insights) -->
+{% for viz in visualizations if viz.graph_type not in ['heatmap', 'box'] %}
+<div class="viz-container mb-4 card-hover">
     <div class="row">
         <div class="col-md-8">
             <h5 class="mb-3">
+                <i class="bi bi-{{ 'bar-chart-line' if viz.graph_type == 'bar' else 'graph-up' if viz.graph_type == 'line' else 'scatter' if viz.graph_type == 'scatter' else 'pie-chart' if viz.graph_type == 'pie' else 'collection' }}"></i> 
                 {{ viz.graph_type|title }}: {{ viz.x_column }}
                 {% if viz.y_column %} vs {{ viz.y_column }}{% endif %}
             </h5>
             <div class="graph-container">
-                <img src="{{ viz.graph_path }}" alt="Visualization" class="img-fluid">
+                <img src="{{ viz.graph_path }}" alt="Visualization" class="img-fluid rounded">
             </div>
         </div>
         <div class="col-md-4">
             <div class="insights-card">
                 <h6><i class="bi bi-lightbulb"></i> Insights</h6>
-                <p>{{ viz.insights }}</p>
+                <div id="insights-{{ viz.id }}" class="insights-content">
+                    {{ viz.insights }}
+                </div>
+                
+                {% if viz.insights == "Click 'Generate Insights' for AI analysis" %}
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary btn-sm" onclick="generateInsights({{ viz.id }}, this)">
+                        <i class="bi bi-robot"></i> Generate AI Insights
+                    </button>
+                    <small class="d-block text-muted mt-1">Uses OpenAI API to analyze patterns</small>
+                </div>
+                {% endif %}
             </div>
             
             {% if encoding_mappings and viz.x_column in encoding_mappings %}
@@ -37,12 +67,8 @@
                 <h6><i class="bi bi-key"></i> Encoding for {{ viz.x_column }}</h6>
                 <div class="small">
                     {% for encoded, original in encoding_mappings[viz.x_column].items() %}
-                    <span class="badge bg-primary me-1" title="{{ original }}">{{ encoded }}</span>
-                    {% if loop.index0 < 5 %}{% if not loop.last %}{% endif %}{% endif %}
+                    <span class="badge bg-primary me-1 mb-1" title="{{ original }}">{{ encoded }}</span>
                     {% endfor %}
-                    {% if encoding_mappings[viz.x_column] | length > 5 %}
-                    <span class="text-muted">+{{ encoding_mappings[viz.x_column] | length - 5 }} more</span>
-                    {% endif %}
                 </div>
             </div>
             {% endif %}
@@ -52,30 +78,58 @@
                 <h6><i class="bi bi-key"></i> Encoding for {{ viz.y_column }}</h6>
                 <div class="small">
                     {% for encoded, original in encoding_mappings[viz.y_column].items() %}
-                    <span class="badge bg-success me-1" title="{{ original }}">{{ encoded }}</span>
-                    {% if loop.index0 < 5 %}{% if not loop.last %}{% endif %}{% endif %}
+                    <span class="badge bg-success me-1 mb-1" title="{{ original }}">{{ encoded }}</span>
                     {% endfor %}
-                    {% if encoding_mappings[viz.y_column] | length > 5 %}
-                    <span class="text-muted">+{{ encoding_mappings[viz.y_column] | length - 5 }} more</span>
-                    {% endif %}
                 </div>
             </div>
             {% endif %}
-            
-            <div class="d-grid gap-2 mt-3">
-                <button class="btn btn-outline-primary btn-sm">
-                    <i class="bi bi-download"></i> Download PNG
-                </button>
-                <button class="btn btn-outline-secondary btn-sm">
-                    <i class="bi bi-share"></i> Share
-                </button>
-            </div>
         </div>
     </div>
 </div>
 {% endfor %}
 
-<a href="{{ url_for('dashboard.index') }}" class="btn btn-outline-primary">
-    <i class="bi bi-arrow-left"></i> Back to Dashboard
-</a>
+<!-- Essential Visualizations (heatmap and box plots) -->
+<h4 class="mt-5 mb-3 gradient-text">Essential Analysis</h4>
+{% for viz in visualizations if viz.graph_type in ['heatmap', 'box'] %}
+<div class="viz-container mb-4 card-hover">
+    <div class="row">
+        <div class="col-md-8">
+            <h5 class="mb-3">
+                <i class="bi bi-{{ 'grid-3x3' if viz.graph_type == 'heatmap' else 'box' if viz.graph_type == 'box' else 'collection' }}"></i> 
+                {{ viz.graph_type|title }} Analysis
+            </h5>
+            <div class="graph-container">
+                <img src="{{ viz.graph_path }}" alt="Visualization" class="img-fluid rounded">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="insights-card">
+                <h6><i class="bi bi-info-circle"></i> Analysis</h6>
+                <div class="insights-content">
+                    {{ viz.insights }}
+                </div>
+            </div>
+            
+            <div class="mt-3">
+                <div class="alert alert-info">
+                    <i class="bi bi-lightbulb"></i> 
+                    <strong>Automatic Analysis:</strong> This visualization was automatically generated to provide essential data insights including {{ 'correlation analysis' if viz.graph_type == 'heatmap' else 'outlier detection' }}.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+
+<script>
+function downloadImage(dataUrl, filename) {
+    const link = document.createElement('a');
+    link.href = dataUrl;
+    link.download = `${filename}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
 {% endblock %}

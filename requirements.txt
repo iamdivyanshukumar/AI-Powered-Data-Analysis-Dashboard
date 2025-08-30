@@ -3,6 +3,7 @@ flask-login
 flask-sqlalchemy
 python-dotenv
 pandas
+seaborn
 plotly
 openai
 werkzeug
