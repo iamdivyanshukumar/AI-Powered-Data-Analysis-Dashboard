@@ -1,44 +1,39 @@
-<!-- templates/auth/register.html - UPDATED -->
 {% extends "base.html" %}
 
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="mb-0">Create Account</h4>
+<div class="row justify-content-center align-items-center" style="min-height: 60vh;">
+    <div class="col-md-5 col-lg-4">
+        <div class="text-center mb-4">
+            <div class="bg-white p-3 rounded-circle d-inline-block shadow-sm mb-3">
+                <i class="bi bi-stars fs-1 text-primary"></i>
             </div>
-            <div class="card-body">
-                {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        {% for message in messages %}
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                {{ message }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
-                
+            <h3 class="fw-bold">Join AutoVizAI</h3>
+        </div>
+        
+        <div class="card shadow-lg border-0">
+            <div class="card-body p-4 p-sm-5">
                 <form method="POST" action="{{ url_for('auth.signup') }}">
                     <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
+                        <label for="username" class="form-label text-muted small fw-bold">Username</label>
+                        <input type="text" class="form-control form-control-lg bg-light border-0" id="username" name="username" required>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <label for="email" class="form-label text-muted small fw-bold">Email Address</label>
+                        <input type="email" class="form-control form-control-lg bg-light border-0" id="email" name="email" required>
                     </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                    <div class="mb-4">
+                        <label for="password" class="form-label text-muted small fw-bold">Password</label>
+                        <input type="password" class="form-control form-control-lg bg-light border-0" id="password" name="password" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">Create Account</button>
+                    </div>
                 </form>
-                <hr>
-                <p class="mb-0">Already have an account? <a href="{{ url_for('auth.login') }}">Login</a></p>
+            </div>
+            <div class="card-footer bg-light text-center py-3 border-0">
+                <p class="mb-0 small">Already have an account? <a href="{{ url_for('auth.login') }}" class="text-primary fw-bold text-decoration-none">Login</a></p>
             </div>
         </div>
     </div>

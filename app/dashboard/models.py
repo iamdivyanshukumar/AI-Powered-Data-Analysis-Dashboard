@@ -1,4 +1,4 @@
-# app/dashboard/models.py - UPDATED
+# app/dashboard/models.py
 from app.extensions import db
 from flask_login import current_user
 from datetime import datetime

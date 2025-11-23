@@ -10,3 +10,5 @@ werkzeug
 matplotlib
 scikit-learn
 gunicorn
+xhtml2pdf 
+markdown

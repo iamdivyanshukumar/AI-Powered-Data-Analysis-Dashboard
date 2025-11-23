@@ -1,135 +1,304 @@
-<!-- templates/dashboard/session.html - UPDATED -->
 {% extends "base.html" %}
 
-{% block title %}Analysis Session - {{ session.filename }}{% endblock %}
-
 {% block content %}
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <div>
-        <h2 class="gradient-text">{{ session.filename }}</h2>
-        <p class="text-muted mb-0">Analyzed on {{ session.created_at.strftime('%B %d, %Y at %H:%M') }}</p>
+<div class="container-fluid px-lg-5 pb-5">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-5 gap-3">
+        <div>
+            <div class="d-flex align-items-center gap-2">
+                <h2 class="fw-bold mb-0 text-dark">{{ session.filename }}</h2>
+                <span class="badge bg-primary-subtle text-primary rounded-pill px-3 border border-primary-subtle">Analysis Mode</span>
+            </div>
+            <p class="text-muted mb-0 mt-2">
+                <i class="bi bi-clock me-1"></i> Generated on {{ session.created_at.strftime('%B %d, %Y at %H:%M') }}
+            </p>
+        </div>
+        
+        <div class="btn-group shadow-sm rounded-3" role="group">
+            <a href="{{ url_for('dashboard.dataset_info', session_id=session.id) }}" class="btn btn-light border bg-white text-secondary fw-medium">
+                <i class="bi bi-table me-2"></i>Data Info
+            </a>
+            <a href="{{ url_for('dashboard.get_ai_analysis', session_id=session.id) }}" target="_blank" class="btn btn-light border bg-white text-secondary fw-medium">
+                <i class="bi bi-file-text me-2"></i>Raw Data
+            </a>
+            <a href="{{ url_for('dashboard.download_report', session_id=session.id) }}" class="btn btn-light border bg-white text-secondary fw-medium">
+                <i class="bi bi-download me-2"></i>Report
+            </a>
+            <button type="button" 
+                    class="btn btn-light border bg-white text-danger hover-danger" 
+                    data-delete-url="{{ url_for('dashboard.delete_session', session_id=session.id) }}"
+                    onclick="if(confirm('Delete this session? This cannot be undone.')) window.location.href=this.dataset.deleteUrl">
+                <i class="bi bi-trash"></i>
+            </button>
+        </div>
     </div>
-    <div>
-        <a href="{{ url_for('dashboard.dataset_info', session_id=session.id) }}" class="btn btn-outline-secondary btn-sm">
-            <i class="bi bi-info-circle"></i> Dataset Info
-        </a>
-        <a href="{{ url_for('dashboard.index') }}" class="btn btn-outline-primary btn-sm ms-1">
-            <i class="bi bi-arrow-left"></i> Back
-        </a>
-    </div>
-</div>
 
-{% if not visualizations %}
-<div class="card">
-    <div class="card-body text-center py-5">
-        <i class="bi bi-bar-chart-line display-1 text-muted"></i>
-        <h4 class="text-muted mt-3">No Visualizations Generated</h4>
-        <p class="text-muted">There was an issue generating visualizations for this dataset.</p>
-        <a href="{{ url_for('dashboard.upload') }}" class="btn btn-primary mt-2">
-            <i class="bi bi-upload"></i> Try Another File
-        </a>
-    </div>
-</div>
-{% else %}
-<!-- Suggested Visualizations (with AI insights) -->
-{% for viz in visualizations if viz.graph_type not in ['heatmap', 'box'] %}
-<div class="viz-container mb-4 card-hover">
-    <div class="row">
-        <div class="col-md-8">
-            <h5 class="mb-3">
-                <i class="bi bi-{{ 'bar-chart-line' if viz.graph_type == 'bar' else 'graph-up' if viz.graph_type == 'line' else 'scatter' if viz.graph_type == 'scatter' else 'pie-chart' if viz.graph_type == 'pie' else 'collection' }}"></i> 
-                {{ viz.graph_type|title }}: {{ viz.x_column }}
-                {% if viz.y_column %} vs {{ viz.y_column }}{% endif %}
-            </h5>
-            <div class="graph-container">
-                <img src="{{ viz.graph_path }}" alt="Visualization" class="img-fluid rounded">
+    {% if ai_analysis and ai_analysis.analysis %}
+    <div class="card border-0 shadow-lg mb-5 overflow-hidden">
+        <div class="card-header bg-gradient-primary text-white p-4 border-0">
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="mb-0 fw-bold"><i class="bi bi-robot me-3"></i>AI Executive Summary</h4>
+                <div class="d-none d-md-block">
+                    <span class="badge bg-white text-primary bg-opacity-25 border border-white border-opacity-25 backdrop-blur px-3 py-2">
+                        <i class="bi bi-shield-check me-2"></i>{{ smart_context.constraints.max_rows_exposed }} Samples Analyzed
+                    </span>
+                </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="insights-card">
-                <h6><i class="bi bi-lightbulb"></i> Insights</h6>
-                <div id="insights-{{ viz.id }}" class="insights-content">
-                    {{ viz.insights }}
+        <div class="card-body p-4 p-lg-5 bg-white">
+            <div class="row g-5">
+                <div class="col-lg-8">
+                    <h6 class="text-uppercase text-muted fw-bold mb-3 small tracking-wide">Key Findings</h6>
+                    <div class="fs-6 text-secondary analysis-prose">
+                        {% if ai_analysis.sections %}
+                            {% for section in ai_analysis.sections %}
+                            <div class="mb-4 p-3 rounded-3 bg-light border-start border-4 border-primary">
+                                {{ section|safe }}
+                            </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="p-3 rounded-3 bg-light border-start border-4 border-primary">
+                                {{ ai_analysis.analysis|safe }}
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
                 
-                {% if viz.insights == "Click 'Generate Insights' for AI analysis" %}
-                <div class="text-center mt-3">
-                    <button class="btn btn-primary btn-sm" onclick="generateInsights({{ viz.id }}, this)">
-                        <i class="bi bi-robot"></i> Generate AI Insights
+                <div class="col-lg-4">
+                    {% if quality_insights and quality_insights.quality_report %}
+                    <div class="bg-light rounded-4 p-4 h-100 border border-light-subtle">
+                        <h6 class="fw-bold text-dark mb-3 d-flex align-items-center">
+                            <i class="bi bi-clipboard-data text-success me-2"></i>Data Quality
+                        </h6>
+                        <div class="small text-muted" style="line-height: 1.6;">
+                            {{ quality_insights.quality_report|safe }}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+        <h4 class="fw-bold mb-0 text-dark">
+            <i class="bi bi-graph-up-arrow me-2 text-primary"></i>Visualizations
+        </h4>
+        <div class="d-flex gap-2">
+            <a href="{{ url_for('dashboard.refresh_analysis', session_id=session.id) }}" class="btn btn-outline-secondary rounded-pill">
+                <i class="bi bi-arrow-clockwise me-2"></i>Refresh
+            </a>
+            <button class="btn btn-primary rounded-pill shadow-sm px-4" onclick="generateAllInsights()">
+                <i class="bi bi-stars me-2"></i>Generate All Insights
+            </button>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        {% for viz in visualizations %}
+        <div class="col-lg-6 col-xl-4">
+            <div class="card h-100 border-0 shadow-sm viz-card position-relative">
+                <div class="card-header bg-white border-0 pt-4 px-4 d-flex justify-content-between align-items-start">
+                    <div>
+                        <h6 class="fw-bold text-capitalize mb-1">
+                            <i class="bi bi-bar-chart-fill me-1 text-muted"></i> {{ viz.graph_type }} Chart
+                        </h6>
+                        <div class="small text-muted">
+                            <span class="fw-bold text-dark bg-light px-2 py-1 rounded">{{ viz.x_column }}</span>
+                            {% if viz.y_column %} vs <span class="fw-bold text-dark bg-light px-2 py-1 rounded">{{ viz.y_column }}</span>{% endif %}
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-link text-muted p-0" data-bs-toggle="dropdown">
+                            <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg rounded-3">
+                            <li><a class="dropdown-item py-2" href="#" onclick="openImageModal('{{ viz.graph_path }}')"><i class="bi bi-arrows-fullscreen me-2"></i>Fullscreen</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card-body text-center p-2 d-flex align-items-center justify-content-center">
+                    <div class="img-container rounded-3 overflow-hidden mx-auto w-100 position-relative group-hover-zoom" 
+                         style="height: 280px; cursor: zoom-in; background: #fafafa;" 
+                         onclick="openImageModal('{{ viz.graph_path }}')">
+                        <img src="{{ viz.graph_path }}" class="img-fluid h-100" style="object-fit: contain;" alt="Visualization">
+                        <div class="position-absolute top-50 start-50 translate-middle opacity-0 hover-show">
+                            <span class="badge bg-dark bg-opacity-75 rounded-pill px-3 py-2"><i class="bi bi-zoom-in me-1"></i> Zoom</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 px-4 pb-4">
+                    <div class="ai-insight-box rounded-3 p-3 mb-3 transition-bg border
+                         {% if viz.insights and viz.insights != "Click 'Generate Insights' for AI analysis" %}bg-primary-subtle border-primary-subtle{% else %}bg-light border-light{% endif %}">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-stars text-accent me-2"></i>
+                            <small class="fw-bold text-uppercase text-secondary" style="font-size: 0.7rem; letter-spacing: 1px;">AI Interpretation</small>
+                        </div>
+                        <div id="insights-{{ viz.id }}" class="small text-dark" style="line-height: 1.5;">
+                            {% if viz.insights and viz.insights != "Click 'Generate Insights' for AI analysis" %}
+                                {{ viz.insights | safe }}
+                            {% else %}
+                                <span class="text-muted fst-italic opacity-75">Click the button below to interpret this chart.</span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <button class="btn w-100 generate-insights-btn shadow-sm 
+                            {% if viz.insights and viz.insights != "Click 'Generate Insights' for AI analysis" %}btn-success disabled-look{% else %}btn-outline-primary{% endif %}" 
+                            data-viz-id="{{ viz.id }}"
+                            {% if viz.insights and viz.insights != "Click 'Generate Insights' for AI analysis" %}disabled{% endif %}>
+                        {% if viz.insights and viz.insights != "Click 'Generate Insights' for AI analysis" %}
+                            <i class="bi bi-check2-circle me-2"></i>Insight Generated
+                        {% else %}
+                            <i class="bi bi-magic me-2"></i>Analyze Graph
+                        {% endif %}
                     </button>
-                    <small class="d-block text-muted mt-1">Uses OpenAI API to analyze patterns</small>
-                </div>
-                {% endif %}
-            </div>
-            
-            {% if encoding_mappings and viz.x_column in encoding_mappings %}
-            <div class="encoding-info mt-3">
-                <h6><i class="bi bi-key"></i> Encoding for {{ viz.x_column }}</h6>
-                <div class="small">
-                    {% for encoded, original in encoding_mappings[viz.x_column].items() %}
-                    <span class="badge bg-primary me-1 mb-1" title="{{ original }}">{{ encoded }}</span>
-                    {% endfor %}
                 </div>
             </div>
-            {% endif %}
-            
-            {% if viz.y_column and encoding_mappings and viz.y_column in encoding_mappings %}
-            <div class="encoding-info mt-2">
-                <h6><i class="bi bi-key"></i> Encoding for {{ viz.y_column }}</h6>
-                <div class="small">
-                    {% for encoded, original in encoding_mappings[viz.y_column].items() %}
-                    <span class="badge bg-success me-1 mb-1" title="{{ original }}">{{ encoded }}</span>
-                    {% endfor %}
-                </div>
-            </div>
-            {% endif %}
         </div>
+        {% endfor %}
     </div>
-</div>
-{% endfor %}
 
-<!-- Essential Visualizations (heatmap and box plots) -->
-<h4 class="mt-5 mb-3 gradient-text">Essential Analysis</h4>
-{% for viz in visualizations if viz.graph_type in ['heatmap', 'box'] %}
-<div class="viz-container mb-4 card-hover">
-    <div class="row">
-        <div class="col-md-8">
-            <h5 class="mb-3">
-                <i class="bi bi-{{ 'grid-3x3' if viz.graph_type == 'heatmap' else 'box' if viz.graph_type == 'box' else 'collection' }}"></i> 
-                {{ viz.graph_type|title }} Analysis
-            </h5>
-            <div class="graph-container">
-                <img src="{{ viz.graph_path }}" alt="Visualization" class="img-fluid rounded">
-            </div>
+    {% if not visualizations %}
+    <div class="text-center py-5 my-5 bg-white rounded-4 shadow-sm border border-dashed">
+        <div class="mb-3 text-muted opacity-25">
+            <i class="bi bi-bar-chart-steps display-1"></i>
         </div>
-        <div class="col-md-4">
-            <div class="insights-card">
-                <h6><i class="bi bi-info-circle"></i> Analysis</h6>
-                <div class="insights-content">
-                    {{ viz.insights }}
-                </div>
-            </div>
-            
-            <div class="mt-3">
-                <div class="alert alert-info">
-                    <i class="bi bi-lightbulb"></i> 
-                    <strong>Automatic Analysis:</strong> This visualization was automatically generated to provide essential data insights including {{ 'correlation analysis' if viz.graph_type == 'heatmap' else 'outlier detection' }}.
-                </div>
+        <h4 class="fw-bold">No Visualizations Yet</h4>
+        <p class="text-muted">There was an issue generating visualizations for this dataset.</p>
+    </div>
+    {% endif %}
+</div>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content border-0 bg-transparent shadow-none">
+            <div class="modal-body text-center p-0 position-relative">
+                <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                <img id="modalImage" src="" class="img-fluid rounded-3 shadow-lg" style="max-height: 90vh; background: white;">
             </div>
         </div>
     </div>
 </div>
-{% endfor %}
-{% endif %}
+{% endblock %}
 
+{% block scripts %}
 <script>
-function downloadImage(dataUrl, filename) {
-    const link = document.createElement('a');
-    link.href = dataUrl;
-    link.download = `${filename}.png`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+// Modal Logic
+function openImageModal(src) {
+    document.getElementById('modalImage').src = src;
+    new bootstrap.Modal(document.getElementById('imageModal')).show();
 }
+
+// Bulk Analysis Logic
+function generateAllInsights() {
+    if (!confirm('Generate AI insights for all visualizations? This may take a few moments.')) {
+        return;
+    }
+    
+    // UI Loading State for all buttons
+    const btns = document.querySelectorAll('.generate-insights-btn');
+    btns.forEach(b => {
+        if(!b.disabled) {
+            b.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Analyzing...';
+            b.classList.add('disabled');
+        }
+    });
+    
+    fetch(`/bulk_insights/{{ session.id }}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            } else {
+                alert('Error generating insights. Please try individual visualizations.');
+                location.reload();
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Network error occurred.');
+            location.reload();
+        });
+}
+
+// Individual Insight Generation Logic
+document.querySelectorAll('.generate-insights-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        if (this.disabled) return;
+
+        const vizId = this.getAttribute('data-viz-id');
+        const insightsElement = document.getElementById(`insights-${vizId}`);
+        const insightBox = insightsElement.closest('.ai-insight-box');
+        
+        // Save original state
+        const originalContent = this.innerHTML;
+        
+        // Set Loading State
+        this.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Thinking...';
+        this.disabled = true;
+        insightsElement.innerHTML = '<span class="text-muted"><i class="bi bi-hourglass-split"></i> AI is analyzing...</span>';
+        
+        fetch(`/generate_summary/${vizId}`)
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    // Success State Update
+                    insightsElement.innerHTML = data.insights;
+                    
+                    // Style Updates (Add color)
+                    insightBox.classList.remove('bg-light', 'border-light');
+                    insightBox.classList.add('bg-primary-subtle', 'border-primary-subtle', 'fade-in');
+                    
+                    // Button Update
+                    this.innerHTML = '<i class="bi bi-check2-circle me-2"></i>Insight Generated';
+                    this.classList.remove('btn-outline-primary');
+                    this.classList.add('btn-success', 'disabled-look');
+                } else {
+                    // Error State
+                    insightsElement.innerHTML = `<span class="text-danger"><i class="bi bi-exclamation-circle"></i> Error: ${data.error || 'Unknown error'}</span>`;
+                    this.innerHTML = originalContent;
+                    this.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                insightsElement.innerHTML = '<span class="text-danger"><i class="bi bi-wifi-off"></i> Network error. Try again.</span>';
+                this.innerHTML = originalContent;
+                this.disabled = false;
+            });
+    });
+});
 </script>
+
+<style>
+    /* Custom Animations & Transitions */
+    .viz-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .viz-card:hover { transform: translateY(-5px); box-shadow: var(--card-hover) !important; }
+    
+    .backdrop-blur { backdrop-filter: blur(8px); }
+    .transition-bg { transition: background-color 0.5s ease, border-color 0.5s ease; }
+    
+    .hover-danger:hover { background-color: #dc3545 !important; color: white !important; border-color: #dc3545 !important; }
+    
+    .disabled-look { opacity: 0.9; cursor: default; pointer-events: none; }
+    
+    .analysis-prose { line-height: 1.8; }
+    .tracking-wide { letter-spacing: 0.05em; }
+
+    /* Image Hover Zoom Effect */
+    .group-hover-zoom:hover .hover-show { opacity: 1 !important; transition: opacity 0.2s; }
+    .group-hover-zoom:hover img { filter: brightness(0.95); transition: filter 0.2s; }
+    
+    .fade-in { animation: fadeIn 0.6s ease-out; }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
 {% endblock %}

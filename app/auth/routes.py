@@ -1,11 +1,9 @@
-# app/auth/routes.py - FIXED IMPORT ORDER
 from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, login_required, current_user
-from werkzeug.security import generate_password_hash, check_password_hash
 from app.auth.models import User
 from app.extensions import db
+from app.utils.security import safe_check_password_hash
 
-# Define the blueprint first
 auth_bp = Blueprint('auth', __name__, template_folder='templates/auth')
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
@@ -20,7 +18,7 @@ def login():
         
         user = User.query.filter_by(username=username).first()
         
-        if not user or not check_password_hash(user.password_hash, password):
+        if not user or not safe_check_password_hash(user.password_hash, password):
             flash('Please check your login details and try again.', 'danger')
             return redirect(url_for('auth.login'))
         
@@ -39,6 +37,15 @@ def signup():
         username = request.form.get('username')
         email = request.form.get('email')
         password = request.form.get('password')
+        
+        # Validate input
+        if not username or not email or not password:
+            flash('Please fill all fields', 'danger')
+            return redirect(url_for('auth.signup'))
+        
+        if len(password) < 6:
+            flash('Password must be at least 6 characters', 'danger')
+            return redirect(url_for('auth.signup'))
         
         # Check if username already exists
         user_by_username = User.query.filter_by(username=username).first()
@@ -70,3 +77,16 @@ def logout():
     logout_user()
     flash('You have been logged out successfully.', 'info')
     return redirect(url_for('auth.login'))
+
+@auth_bp.route('/profile')
+@login_required
+def profile():
+    """User profile page."""
+    from app.dashboard.models import AnalysisSession, Visualization
+    user_sessions = AnalysisSession.query.filter_by(user_id=current_user.id).count()
+    total_visualizations = db.session.query(Visualization).join(AnalysisSession).filter(AnalysisSession.user_id == current_user.id).count()
+    
+    return render_template('auth/profile.html', 
+                         user=current_user,
+                         total_sessions=user_sessions,
+                         total_visualizations=total_visualizations)
