@@ -1,0 +1,655 @@
+2025-12-02 01:43:56 - app - INFO - Logging configured. Level: INFO
+2025-12-02 01:43:56 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 01:44:36 - app - INFO - Logging configured. Level: INFO
+2025-12-02 01:44:36 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 01:46:58 - app - INFO - Logging configured. Level: INFO
+2025-12-02 01:46:58 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 01:48:55 - app - INFO - Logging configured. Level: INFO
+2025-12-02 01:48:55 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 01:52:32 - app - INFO - Logging configured. Level: INFO
+2025-12-02 01:52:32 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 01:56:51 - app - INFO - Logging configured. Level: INFO
+2025-12-02 01:56:51 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 01:58:33 - app - INFO - Logging configured. Level: INFO
+2025-12-02 01:58:33 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:00:47 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:00:47 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:01:56 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:01:56 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:02:51 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:02:51 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:02:52 - app - INFO - Database tables created
+2025-12-02 02:02:52 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:03:34 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:03:34 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:03:35 - app - INFO - Database tables created
+2025-12-02 02:03:35 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:03:36 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:03:36 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:03:36 - app - INFO - Database tables created
+2025-12-02 02:03:36 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:08:28 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:08:28 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:08:30 - app - INFO - Database tables created
+2025-12-02 02:08:30 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:08:55 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:08:55 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:14:42 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:14:42 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:15:30 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:15:30 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:15:31 - app - INFO - Database tables created
+2025-12-02 02:15:31 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:15:32 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:15:32 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:15:32 - app - INFO - Database tables created
+2025-12-02 02:15:32 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:17:49 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:17:49 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:17:50 - app - INFO - Database tables created
+2025-12-02 02:17:50 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:17:56 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:17:56 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:17:57 - app - INFO - Database tables created
+2025-12-02 02:17:57 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:19:40 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:19:40 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:19:42 - app - INFO - Database tables created
+2025-12-02 02:19:42 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:19:46 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:19:46 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:19:47 - app - INFO - Database tables created
+2025-12-02 02:19:47 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:20:54 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:20:54 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:20:55 - app - INFO - Database tables created
+2025-12-02 02:20:55 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:21:04 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:21:04 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:21:05 - app - INFO - Database tables created
+2025-12-02 02:21:05 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:22:14 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:22:14 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:22:15 - app - INFO - Database tables created
+2025-12-02 02:22:15 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:22:16 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:22:16 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:22:17 - app - INFO - Database tables created
+2025-12-02 02:22:17 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:22:58 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:22:58 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:22:59 - app - INFO - Database tables created
+2025-12-02 02:22:59 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:23:07 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:23:07 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:23:08 - app - INFO - Database tables created
+2025-12-02 02:23:08 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:23:45 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:23:45 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:23:46 - app - INFO - Database tables created
+2025-12-02 02:23:46 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:23:51 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:23:51 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:23:52 - app - INFO - Database tables created
+2025-12-02 02:23:52 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:24:48 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:24:48 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:24:49 - app - INFO - Database tables created
+2025-12-02 02:24:49 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:24:57 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:24:57 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:24:58 - app - INFO - Database tables created
+2025-12-02 02:24:58 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:25:41 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:25:41 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:25:42 - app - INFO - Database tables created
+2025-12-02 02:25:42 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:28:14 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:28:14 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:28:15 - app - INFO - Database tables created
+2025-12-02 02:28:15 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:28:15 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:28:15 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:28:16 - app - INFO - Database tables created
+2025-12-02 02:28:16 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:31:34 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:31:34 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:31:35 - app - INFO - Database tables created
+2025-12-02 02:31:35 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:31:39 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:31:39 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:31:40 - app - INFO - Database tables created
+2025-12-02 02:31:40 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:32:31 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:32:31 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:32:32 - app - INFO - Database tables created
+2025-12-02 02:32:32 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:33:14 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:33:14 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:33:15 - app - INFO - Database tables created
+2025-12-02 02:33:15 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:34:30 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:34:30 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:34:32 - app - INFO - Database tables created
+2025-12-02 02:34:32 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:34:32 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:34:32 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:34:33 - app - INFO - Database tables created
+2025-12-02 02:34:33 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:38:44 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:38:44 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:38:45 - app - INFO - Database tables created
+2025-12-02 02:38:45 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:38:46 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:38:46 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:38:47 - app - INFO - Database tables created
+2025-12-02 02:38:47 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:55:01 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:55:01 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:55:02 - app - INFO - Database tables created
+2025-12-02 02:55:02 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:55:02 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:55:02 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:55:03 - app - INFO - Database tables created
+2025-12-02 02:55:03 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:56:51 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:56:51 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:56:52 - app - INFO - Database tables created
+2025-12-02 02:56:52 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:57:05 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:57:05 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:57:06 - app - INFO - Database tables created
+2025-12-02 02:57:06 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:57:09 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:57:09 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 02:57:10 - app - INFO - Database tables created
+2025-12-02 02:57:10 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 02:59:59 - app - INFO - Logging configured. Level: INFO
+2025-12-02 02:59:59 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:00:00 - app - INFO - Database tables created
+2025-12-02 03:00:00 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:00:15 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:00:15 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:00:16 - app - INFO - Database tables created
+2025-12-02 03:00:16 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:00:16 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:00:16 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:00:17 - app - INFO - Database tables created
+2025-12-02 03:00:17 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:00:47 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:00:47 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:00:48 - app - INFO - Database tables created
+2025-12-02 03:00:48 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:00:56 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:00:56 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:00:57 - app - INFO - Database tables created
+2025-12-02 03:00:57 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:00:57 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:00:57 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:00:58 - app - INFO - Database tables created
+2025-12-02 03:00:58 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:01:10 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:01:10 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:01:11 - app - INFO - Database tables created
+2025-12-02 03:01:11 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:01:17 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:01:17 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:01:18 - app - INFO - Database tables created
+2025-12-02 03:01:18 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:05:25 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:05:25 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:05:26 - app - INFO - Database tables created
+2025-12-02 03:05:26 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:07:39 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:07:39 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:07:41 - app - INFO - Database tables created
+2025-12-02 03:07:41 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:07:41 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:07:41 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:07:42 - app - INFO - Database tables created
+2025-12-02 03:07:42 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:10:42 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:10:42 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:10:44 - app - INFO - Database tables created
+2025-12-02 03:10:44 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:12:17 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:12:17 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:12:18 - app - INFO - Database tables created
+2025-12-02 03:12:18 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:12:18 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:12:18 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:12:19 - app - INFO - Database tables created
+2025-12-02 03:12:19 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:16:50 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:16:50 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:16:51 - app - INFO - Database tables created
+2025-12-02 03:16:51 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:21:18 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:21:18 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:21:19 - app - INFO - Database tables created
+2025-12-02 03:21:19 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:21:19 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:21:19 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:21:20 - app - INFO - Database tables created
+2025-12-02 03:21:20 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:22:58 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:22:58 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:22:58 - app - INFO - Database tables created
+2025-12-02 03:22:58 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:23:35 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:23:35 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:23:35 - app - INFO - Database tables created
+2025-12-02 03:23:35 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:23:36 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:23:36 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:23:36 - app - INFO - Database tables created
+2025-12-02 03:23:36 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:26:33 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:26:33 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:26:33 - app - INFO - Database tables created
+2025-12-02 03:26:33 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:26:33 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:26:33 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:26:33 - app - INFO - Database tables created
+2025-12-02 03:26:33 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:26:43 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:26:43 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:26:43 - app - INFO - Database tables created
+2025-12-02 03:26:43 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:26:48 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:26:48 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:26:48 - app - INFO - Database tables created
+2025-12-02 03:26:48 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:26:48 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:26:48 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:26:48 - app - INFO - Database tables created
+2025-12-02 03:26:48 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:30:18 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:30:18 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:30:18 - app - INFO - Database tables created
+2025-12-02 03:30:18 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:34:35 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:34:35 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:34:35 - app - INFO - Database tables created
+2025-12-02 03:34:35 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:34:35 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:34:35 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:34:35 - app - INFO - Database tables created
+2025-12-02 03:34:35 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:36:21 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:36:21 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:36:47 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:36:47 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:36:47 - app - INFO - Database tables created
+2025-12-02 03:36:47 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:36:48 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:36:48 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:36:48 - app - INFO - Database tables created
+2025-12-02 03:36:48 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:37:02 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:37:02 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:37:02 - app - INFO - Database tables created
+2025-12-02 03:37:02 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:37:08 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:37:08 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:37:08 - app - INFO - Database tables created
+2025-12-02 03:37:08 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:37:08 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:37:08 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:37:08 - app - INFO - Database tables created
+2025-12-02 03:37:08 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:37:44 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:37:44 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:37:44 - app - INFO - Database tables created
+2025-12-02 03:37:44 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:37:53 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:37:53 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:37:53 - app - INFO - Database tables created
+2025-12-02 03:37:53 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:37:53 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:37:53 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:37:53 - app - INFO - Database tables created
+2025-12-02 03:37:53 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:39:10 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:39:10 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:39:10 - app - INFO - Database tables created
+2025-12-02 03:39:10 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:39:18 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:39:18 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:39:18 - app - INFO - Database tables created
+2025-12-02 03:39:18 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:39:19 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:39:19 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:39:19 - app - INFO - Database tables created
+2025-12-02 03:39:19 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:55:27 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:55:27 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:55:27 - app - INFO - Database tables created
+2025-12-02 03:55:27 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:55:47 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:55:47 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:55:47 - app - INFO - Database tables created
+2025-12-02 03:55:47 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:56:03 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:56:03 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:56:03 - app - INFO - Database tables created
+2025-12-02 03:56:03 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 03:56:03 - app - INFO - Logging configured. Level: INFO
+2025-12-02 03:56:03 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 03:56:03 - app - INFO - Database tables created
+2025-12-02 03:56:03 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 04:00:41 - app - INFO - Logging configured. Level: INFO
+2025-12-02 04:00:41 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 04:00:41 - app - INFO - Database tables created
+2025-12-02 04:00:41 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 04:00:55 - app - INFO - Logging configured. Level: INFO
+2025-12-02 04:00:55 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 04:00:56 - app - INFO - Database tables created
+2025-12-02 04:00:56 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 04:01:10 - app - INFO - Logging configured. Level: INFO
+2025-12-02 04:01:10 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 04:01:11 - app - INFO - Database tables created
+2025-12-02 04:01:11 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 04:01:23 - app - INFO - Logging configured. Level: INFO
+2025-12-02 04:01:23 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 04:01:23 - app - INFO - Database tables created
+2025-12-02 04:01:23 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 04:01:24 - app - INFO - Logging configured. Level: INFO
+2025-12-02 04:01:24 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 04:01:24 - app - INFO - Database tables created
+2025-12-02 04:01:24 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 04:32:42 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and manipulates Jupyter-style notebooks)
+2025-12-02 04:32:48 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and manipulates Jupyter-style notebooks)
+2025-12-02 04:37:28 - app - INFO - Logging configured. Level: INFO
+2025-12-02 04:37:28 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 04:40:53 - app - INFO - Logging configured. Level: INFO
+2025-12-02 04:40:53 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 04:40:55 - app - INFO - Database tables created
+2025-12-02 04:40:55 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 04:40:55 - app - INFO - Logging configured. Level: INFO
+2025-12-02 04:40:55 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 04:40:56 - app - INFO - Database tables created
+2025-12-02 04:40:56 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 05:28:56 - app - INFO - Logging configured. Level: INFO
+2025-12-02 05:28:56 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 05:30:26 - app - INFO - Logging configured. Level: INFO
+2025-12-02 05:30:26 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 05:30:40 - app - INFO - Logging configured. Level: INFO
+2025-12-02 05:30:40 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 05:31:54 - app - INFO - Logging configured. Level: INFO
+2025-12-02 05:31:54 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 05:31:55 - app - INFO - Database tables created
+2025-12-02 05:31:55 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 05:31:55 - app - INFO - Logging configured. Level: INFO
+2025-12-02 05:31:55 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 05:31:56 - app - INFO - Database tables created
+2025-12-02 05:31:56 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 05:36:02 - app - INFO - Logging configured. Level: INFO
+2025-12-02 05:36:02 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 05:39:14 - app - INFO - Logging configured. Level: INFO
+2025-12-02 05:39:14 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 05:39:32 - app - INFO - Logging configured. Level: INFO
+2025-12-02 05:39:32 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 05:40:13 - app - INFO - Logging configured. Level: INFO
+2025-12-02 05:40:13 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 05:40:14 - app - INFO - Database tables created
+2025-12-02 05:40:14 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 05:40:14 - app - INFO - Logging configured. Level: INFO
+2025-12-02 05:40:14 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 05:40:15 - app - INFO - Database tables created
+2025-12-02 05:40:15 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 05:40:31,579 - agent.DataRoutes - INFO - [file_uploaded] Uploaded used_cars.csv [✓]
+2025-12-02 05:43:21,306 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 05:53:23,840 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 05:55:47,921 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 05:58:17,578 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded used_cars.csv [✓]
+2025-12-02 06:02:45 - app - INFO - Logging configured. Level: INFO
+2025-12-02 06:02:45 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 06:02:46 - app - INFO - Database tables created
+2025-12-02 06:02:46 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 06:02:46 - app - INFO - Logging configured. Level: INFO
+2025-12-02 06:02:46 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 06:02:47 - app - INFO - Database tables created
+2025-12-02 06:02:47 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 06:03:58,519 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 06:11:24,003 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 06:14:49,597 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 14:41:45 - app - INFO - Logging configured. Level: INFO
+2025-12-02 14:41:45 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 14:41:46 - app - INFO - Database tables created
+2025-12-02 14:41:46 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 14:41:47 - app - INFO - Logging configured. Level: INFO
+2025-12-02 14:41:47 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 14:41:48 - app - INFO - Database tables created
+2025-12-02 14:41:48 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 14:46:44,420 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 14:49:19,263 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 15:05:47,291 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 15:06:05,870 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 15:09:45,497 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 15:11:33,128 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 15:25:14 - app - INFO - Logging configured. Level: INFO
+2025-12-02 15:25:14 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 15:25:15 - app - INFO - Database tables created
+2025-12-02 15:25:15 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 15:25:16 - app - INFO - Logging configured. Level: INFO
+2025-12-02 15:25:16 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 15:25:16 - app - INFO - Database tables created
+2025-12-02 15:25:16 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 15:26:24,862 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 15:35:22,703 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 15:44:55 - app - INFO - Logging configured. Level: INFO
+2025-12-02 15:44:55 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 15:44:56 - app - INFO - Database tables created
+2025-12-02 15:44:56 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 15:47:27,126 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 15:48:58 - app - INFO - Logging configured. Level: INFO
+2025-12-02 15:48:58 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 15:48:59 - app - INFO - Database tables created
+2025-12-02 15:48:59 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 15:49:20 - app - INFO - Logging configured. Level: INFO
+2025-12-02 15:49:20 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 15:49:21 - app - INFO - Database tables created
+2025-12-02 15:49:21 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 15:49:23 - app - INFO - Logging configured. Level: INFO
+2025-12-02 15:49:23 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 15:49:23 - app - INFO - Database tables created
+2025-12-02 15:49:23 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 15:53:43,178 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 15:56:55,195 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 16:12:03 - app - INFO - Logging configured. Level: INFO
+2025-12-02 16:12:03 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 16:12:05 - app - INFO - Database tables created
+2025-12-02 16:12:05 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 16:24:55,876 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 16:28:49,185 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 16:30:00,499 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 16:30:16,138 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 16:31:34,254 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 16:32:30,338 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 16:32:48,631 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 16:40:04 - app - INFO - Logging configured. Level: INFO
+2025-12-02 16:40:04 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 16:40:05 - app - INFO - Database tables created
+2025-12-02 16:40:05 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 16:45:33,488 - agent.DataRoutes - INFO - [file_uploaded] Uploaded used_cars.csv [✓]
+2025-12-02 16:49:46 - app - INFO - Logging configured. Level: INFO
+2025-12-02 16:49:46 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 16:49:57 - app - INFO - Logging configured. Level: INFO
+2025-12-02 16:49:57 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 16:51:36 - app - INFO - Logging configured. Level: INFO
+2025-12-02 16:51:36 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 16:54:19 - app - INFO - Logging configured. Level: INFO
+2025-12-02 16:54:19 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 16:55:18 - app - INFO - Logging configured. Level: INFO
+2025-12-02 16:55:18 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 16:55:19 - app - INFO - Database tables created
+2025-12-02 16:55:19 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 16:55:20 - app - INFO - Logging configured. Level: INFO
+2025-12-02 16:55:20 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 16:55:20 - app - INFO - Database tables created
+2025-12-02 16:55:20 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 16:55:24,062 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 17:05:54,887 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 17:13:28 - app - INFO - Logging configured. Level: INFO
+2025-12-02 17:13:28 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 17:13:29 - app - INFO - Database tables created
+2025-12-02 17:13:29 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 17:19:35 - app - INFO - Logging configured. Level: INFO
+2025-12-02 17:19:35 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 17:19:36 - app - INFO - Database tables created
+2025-12-02 17:19:36 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 17:19:37 - app - INFO - Logging configured. Level: INFO
+2025-12-02 17:19:37 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 17:19:37 - app - INFO - Database tables created
+2025-12-02 17:19:37 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 17:20:36 - app - INFO - Logging configured. Level: INFO
+2025-12-02 17:20:36 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 17:20:37 - app - INFO - Database tables created
+2025-12-02 17:20:37 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 17:20:37 - app - INFO - Logging configured. Level: INFO
+2025-12-02 17:20:37 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 17:20:38 - app - INFO - Database tables created
+2025-12-02 17:20:38 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 17:27:29 - app - INFO - Logging configured. Level: INFO
+2025-12-02 17:27:29 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 17:27:30 - app - INFO - Database tables created
+2025-12-02 17:27:30 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 17:27:30 - app - INFO - Logging configured. Level: INFO
+2025-12-02 17:27:30 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 17:27:31 - app - INFO - Database tables created
+2025-12-02 17:27:31 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 17:30:19 - app - INFO - Logging configured. Level: INFO
+2025-12-02 17:30:19 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 17:30:20 - app - INFO - Database tables created
+2025-12-02 17:30:20 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 17:30:20 - app - INFO - Logging configured. Level: INFO
+2025-12-02 17:30:20 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 17:30:21 - app - INFO - Database tables created
+2025-12-02 17:30:21 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 17:33:35,833 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 17:37:32,554 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 17:40:13,970 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 17:47:05,642 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 17:54:09,306 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 18:13:02,571 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 18:16:53,196 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 18:18:31 - app - INFO - Logging configured. Level: INFO
+2025-12-02 18:18:31 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 18:18:33 - app - INFO - Database tables created
+2025-12-02 18:18:33 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 18:27:39,504 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 18:29:08 - app - INFO - Logging configured. Level: INFO
+2025-12-02 18:29:08 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 18:29:09 - app - INFO - Database tables created
+2025-12-02 18:29:09 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 18:29:58 - app.core.state_manager - INFO - Created session c9811397-ec38-4319-922a-60a30b0b25b5 for user 4 with (150460, 21) dataframe
+2025-12-02 18:29:58,571 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 18:29:58 - app.core.state_manager - INFO - Added notebook e0469229-fb32-4c7b-8b16-50c958c6ed10 to session c9811397-ec38-4319-922a-60a30b0b25b5
+2025-12-02 18:29:58 - app.core.safe_executor - ERROR - Unexpected execution error: type object 'SafeExecutor' has no attribute '_execution_start_time'
+2025-12-02 18:29:58 - app.agents.base_agent - INFO - Initialized agent: Orchestrator (Coordinates data analysis workflow between specialist agents)
+2025-12-02 18:29:58 - app.agents.base_agent - INFO - Initialized agent: EDASpecialist (Performs comprehensive exploratory data analysis)
+2025-12-02 18:29:58 - app.agents.eda_specialist - INFO - EDA Specialist agent initialized
+2025-12-02 18:29:58 - app.agents.base_agent - INFO - Initialized agent: Storyteller (Creates narrative insights and business stories from data)
+2025-12-02 18:29:58 - app.agents.storyteller_agent - INFO - Storyteller agent initialized
+2025-12-02 18:29:58 - app.agents.base_agent - INFO - Initialized agent: QualityInspector (Comprehensive data quality assessment and validation)
+2025-12-02 18:29:58 - app.agents.quality_inspector - INFO - Quality Inspector agent initialized
+2025-12-02 18:29:58 - app.agents.base_agent - INFO - Initialized agent: DataEngineerAgent (Handles data cleaning, preprocessing, and feature engineering)
+2025-12-02 18:29:58 - app.agents.base_agent - INFO - Initialized agent: MLSpecialist (Performs ML training and evaluation)
+2025-12-02 18:29:58 - app.agents.orchestrator_agent - INFO - Orchestrator agent initialized
+2025-12-02 18:29:59 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 18:29:59,252 - agent.EDASpecialist - INFO - [end_execute] (0.0ms) [✓]
+2025-12-02 18:38:53 - app - INFO - Logging configured. Level: INFO
+2025-12-02 18:38:53 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 18:38:55 - app - INFO - Database tables created
+2025-12-02 18:38:55 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 18:39:23 - app - INFO - Logging configured. Level: INFO
+2025-12-02 18:39:23 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 18:39:24 - app - INFO - Database tables created
+2025-12-02 18:39:24 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 18:39:46 - app.core.state_manager - INFO - Created session c7ac5bce-7abb-4550-9378-c39c2607b077 for user 5 with (150460, 21) dataframe
+2025-12-02 18:39:46,089 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 18:39:46 - app.core.state_manager - INFO - Added notebook 1701c0da-efc3-4417-a30f-5fa3bc085fd6 to session c7ac5bce-7abb-4550-9378-c39c2607b077
+2025-12-02 18:39:46 - app.core.safe_executor - ERROR - Unexpected execution error: type object 'SafeExecutor' has no attribute '_execution_start_time'
+2025-12-02 18:39:46 - app.agents.base_agent - INFO - Initialized agent: Orchestrator (Coordinates data analysis workflow between specialist agents)
+2025-12-02 18:39:46 - app.agents.base_agent - INFO - Initialized agent: EDASpecialist (Performs comprehensive exploratory data analysis)
+2025-12-02 18:39:46 - app.agents.eda_specialist - INFO - EDA Specialist agent initialized
+2025-12-02 18:39:46 - app.agents.base_agent - INFO - Initialized agent: Storyteller (Creates narrative insights and business stories from data)
+2025-12-02 18:39:46 - app.agents.storyteller_agent - INFO - Storyteller agent initialized
+2025-12-02 18:39:46 - app.agents.base_agent - INFO - Initialized agent: QualityInspector (Comprehensive data quality assessment and validation)
+2025-12-02 18:39:46 - app.agents.quality_inspector - INFO - Quality Inspector agent initialized
+2025-12-02 18:39:46 - app.agents.base_agent - INFO - Initialized agent: DataEngineerAgent (Handles data cleaning, preprocessing, and feature engineering)
+2025-12-02 18:39:46 - app.agents.base_agent - INFO - Initialized agent: MLSpecialist (Performs ML training and evaluation)
+2025-12-02 18:39:46 - app.agents.orchestrator_agent - INFO - Orchestrator agent initialized
+2025-12-02 18:39:46 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 18:39:46,754 - agent.EDASpecialist - INFO - [end_execute] (0.0ms) [✓]
+2025-12-02 18:42:17 - app - INFO - Logging configured. Level: INFO
+2025-12-02 18:42:17 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 18:42:18 - app - INFO - Database tables created
+2025-12-02 18:42:18 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 18:42:19 - app - INFO - Logging configured. Level: INFO
+2025-12-02 18:42:19 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 18:42:20 - app - INFO - Database tables created
+2025-12-02 18:42:20 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 18:42:50 - app.core.state_manager - INFO - Created session 05d6e0a2-0a6d-454b-af70-1cf28f00e728 for user 2 with (150460, 21) dataframe
+2025-12-02 18:42:50,207 - agent.DataRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 18:42:50 - app.core.state_manager - INFO - Added notebook b85c16d4-7101-49e0-aaf4-217d84894206 to session 05d6e0a2-0a6d-454b-af70-1cf28f00e728
+2025-12-02 18:43:03 - app.agents.base_agent - INFO - Initialized agent: Orchestrator (Coordinates data analysis workflow between specialist agents)
+2025-12-02 18:43:03 - app.agents.base_agent - INFO - Initialized agent: EDASpecialist (Performs comprehensive exploratory data analysis)
+2025-12-02 18:43:03 - app.agents.eda_specialist - INFO - EDA Specialist agent initialized
+2025-12-02 18:43:03 - app.agents.base_agent - INFO - Initialized agent: Storyteller (Creates narrative insights and business stories from data)
+2025-12-02 18:43:03 - app.agents.storyteller_agent - INFO - Storyteller agent initialized
+2025-12-02 18:43:03 - app.agents.base_agent - INFO - Initialized agent: QualityInspector (Comprehensive data quality assessment and validation)
+2025-12-02 18:43:03 - app.agents.quality_inspector - INFO - Quality Inspector agent initialized
+2025-12-02 18:43:03 - app.agents.base_agent - INFO - Initialized agent: DataEngineerAgent (Handles data cleaning, preprocessing, and feature engineering)
+2025-12-02 18:43:03 - app.agents.base_agent - INFO - Initialized agent: MLSpecialist (Performs ML training and evaluation)
+2025-12-02 18:43:03 - app.agents.orchestrator_agent - INFO - Orchestrator agent initialized
+2025-12-02 18:43:04 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 18:43:04,124 - agent.EDASpecialist - INFO - [end_execute] (0.0ms) [✓]
+2025-12-02 18:44:04 - app.agents.base_agent - INFO - Initialized agent: Orchestrator (Coordinates data analysis workflow between specialist agents)
+2025-12-02 18:44:04 - app.agents.base_agent - INFO - Initialized agent: EDASpecialist (Performs comprehensive exploratory data analysis)
+2025-12-02 18:44:04 - app.agents.eda_specialist - INFO - EDA Specialist agent initialized
+2025-12-02 18:44:04 - app.agents.base_agent - INFO - Initialized agent: Storyteller (Creates narrative insights and business stories from data)
+2025-12-02 18:44:04 - app.agents.storyteller_agent - INFO - Storyteller agent initialized
+2025-12-02 18:44:04 - app.agents.base_agent - INFO - Initialized agent: QualityInspector (Comprehensive data quality assessment and validation)
+2025-12-02 18:44:04 - app.agents.quality_inspector - INFO - Quality Inspector agent initialized
+2025-12-02 18:44:04 - app.agents.base_agent - INFO - Initialized agent: DataEngineerAgent (Handles data cleaning, preprocessing, and feature engineering)
+2025-12-02 18:44:04 - app.agents.base_agent - INFO - Initialized agent: MLSpecialist (Performs ML training and evaluation)
+2025-12-02 18:44:04 - app.agents.orchestrator_agent - INFO - Orchestrator agent initialized
+2025-12-02 18:44:05 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 18:44:05,479 - agent.EDASpecialist - INFO - [end_execute] (0.0ms) [✓]
+2025-12-02 18:44:42 - app.agents.base_agent - INFO - Initialized agent: Orchestrator (Coordinates data analysis workflow between specialist agents)
+2025-12-02 18:44:42 - app.agents.base_agent - INFO - Initialized agent: EDASpecialist (Performs comprehensive exploratory data analysis)
+2025-12-02 18:44:42 - app.agents.eda_specialist - INFO - EDA Specialist agent initialized
+2025-12-02 18:44:42 - app.agents.base_agent - INFO - Initialized agent: Storyteller (Creates narrative insights and business stories from data)
+2025-12-02 18:44:42 - app.agents.storyteller_agent - INFO - Storyteller agent initialized
+2025-12-02 18:44:42 - app.agents.base_agent - INFO - Initialized agent: QualityInspector (Comprehensive data quality assessment and validation)
+2025-12-02 18:44:42 - app.agents.quality_inspector - INFO - Quality Inspector agent initialized
+2025-12-02 18:44:42 - app.agents.base_agent - INFO - Initialized agent: DataEngineerAgent (Handles data cleaning, preprocessing, and feature engineering)
+2025-12-02 18:44:42 - app.agents.base_agent - INFO - Initialized agent: MLSpecialist (Performs ML training and evaluation)
+2025-12-02 18:44:42 - app.agents.orchestrator_agent - INFO - Orchestrator agent initialized
+2025-12-02 18:44:43 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 18:44:43,150 - agent.EDASpecialist - INFO - [end_execute] (0.0ms) [✓]
+2025-12-02 19:03:12 - app - INFO - Logging configured. Level: INFO
+2025-12-02 19:03:12 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 19:03:50 - app - INFO - Database tables created
+2025-12-02 19:03:50 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 19:03:50 - app - INFO - Logging configured. Level: INFO
+2025-12-02 19:03:50 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 19:03:51 - app - INFO - Database tables created
+2025-12-02 19:03:51 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 19:04:08 - app.core.state_manager - INFO - Created session 338c71f6-f59e-4d85-8481-3d06f84090f1 for user 2 with (4009, 12) dataframe
+2025-12-02 19:04:08,898 - agent.DataRoutes - INFO - [file_uploaded] Uploaded used_cars.csv [✓]
+2025-12-02 19:04:08 - app.core.state_manager - INFO - Added notebook 0874a2f0-0f3b-4171-a2f9-66be0272958a to session 338c71f6-f59e-4d85-8481-3d06f84090f1
+2025-12-02 19:04:17 - app.agents.base_agent - INFO - Initialized agent: Orchestrator (Coordinates data analysis workflow between specialist agents)
+2025-12-02 19:04:17 - app.agents.base_agent - INFO - Initialized agent: EDASpecialist (Performs comprehensive exploratory data analysis)
+2025-12-02 19:04:17 - app.agents.eda_specialist - INFO - EDA Specialist agent initialized
+2025-12-02 19:04:17 - app.agents.base_agent - INFO - Initialized agent: Storyteller (Creates narrative insights and business stories from data)
+2025-12-02 19:04:17 - app.agents.storyteller_agent - INFO - Storyteller agent initialized
+2025-12-02 19:04:17 - app.agents.base_agent - INFO - Initialized agent: QualityInspector (Comprehensive data quality assessment and validation)
+2025-12-02 19:04:17 - app.agents.quality_inspector - INFO - Quality Inspector agent initialized
+2025-12-02 19:04:17 - app.agents.base_agent - INFO - Initialized agent: DataEngineerAgent (Handles data cleaning, preprocessing, and feature engineering)
+2025-12-02 19:04:17 - app.agents.base_agent - INFO - Initialized agent: MLSpecialist (Performs ML training and evaluation)
+2025-12-02 19:04:17 - app.agents.orchestrator_agent - INFO - Orchestrator agent initialized
+2025-12-02 19:04:17 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 19:04:17,235 - agent.EDASpecialist - INFO - [end_execute] (0.0ms) [✓]

@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-md bg-background/80;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:scale-[1.02];
+  }
+  
+  .btn-primary {
+    @apply px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-secondary {
+    @apply px-4 py-2 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-2 bg-background border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors;
+  }
+  
+  .code-block {
+    @apply font-mono text-sm bg-muted p-3 rounded-lg overflow-x-auto;
+  }
+  
+  .notebook-cell {
+    @apply transition-all duration-200;
+  }
+  
+  .notebook-cell:hover {
+    @apply shadow-md;
+  }
+  
+  .markdown-content {
+    @apply prose prose-sm max-w-none;
+  }
+  
+  .markdown-content h1 {
+    @apply text-2xl font-bold mb-4;
+  }
+  
+  .markdown-content h2 {
+    @apply text-xl font-semibold mb-3;
+  }
+  
+  .markdown-content h3 {
+    @apply text-lg font-semibold mb-2;
+  }
+  
+  .markdown-content p {
+    @apply mb-3;
+  }
+  
+  .markdown-content ul, .markdown-content ol {
+    @apply mb-3 pl-5;
+  }
+  
+  .markdown-content li {
+    @apply mb-1;
+  }
+  
+  .markdown-content code {
+    @apply bg-muted px-1 py-0.5 rounded text-sm;
+  }
+  
+  .markdown-content pre {
+    @apply bg-muted p-3 rounded-lg overflow-x-auto mb-3;
+  }
+  
+  .markdown-content blockquote {
+    @apply border-l-4 border-primary pl-4 italic my-3;
+  }
+  
+  .markdown-content table {
+    @apply w-full border-collapse mb-3;
+  }
+  
+  .markdown-content th, .markdown-content td {
+    @apply border border-input px-3 py-2;
+  }
+  
+  .markdown-content th {
+    @apply bg-muted font-semibold;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Monaco Editor overrides */
+.monaco-wrapper {
+  @apply rounded-lg overflow-hidden;
+}
+
+/* Plotly overrides */
+.js-plotly-plot .plotly .modebar {
+  @apply bg-transparent !important;
+}
+
+.js-plotly-plot .plotly .modebar-group {
+  @apply bg-card border border-border rounded-lg !important;
+}
+
+/* React-resizable-panels overrides */
+[data-panel-group] {
+  @apply gap-1;
+}
+
+[data-panel-group][data-direction="horizontal"] > [data-panel] {
+  @apply min-w-0;
+}
+
+[data-panel-group][data-direction="vertical"] > [data-panel] {
+  @apply min-h-0;
+}
+
+[data-resize-handle] {
+  @apply bg-border;
+}
+
+[data-resize-handle]:hover {
+  @apply bg-primary/30;
+}
+
+[data-resize-handle][data-resize-handle-active] {
+  @apply bg-primary;
+}

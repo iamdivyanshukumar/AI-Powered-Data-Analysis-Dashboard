@@ -1,3 +1,4 @@
-.env
-myenv
-
+backend/.env
+backend/myenv
+frontend/node_modules
+frontend/package.json
