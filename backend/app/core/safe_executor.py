@@ -118,7 +118,7 @@ class SafeExecutor:
                 }
             
             # Execute with timeout protection
-            result = cls._execute_with_timeout(compiled_code, exec_globals, start_time)
+            result = cls._execute_with_timeout(code, exec_globals, start_time)
             
             if result['timeout']:
                 return {
@@ -138,7 +138,7 @@ class SafeExecutor:
                 }
             
             # Extract results from execution
-            execution_results = cls._extract_results(exec_globals, dataframe)
+            execution_results = cls._extract_results(exec_globals, dataframe, result.get('text_output', ''))
             
             # Calculate execution time
             execution_time = (datetime.now() - start_time).total_seconds()
@@ -309,32 +309,55 @@ class SafeExecutor:
         if context:
             env.update(context)
         
-        # Lazy imports for heavier modules (only when needed)
-        def lazy_import(module_name, import_path):
-            """Lazy import helper"""
-            try:
-                module = __import__(import_path, fromlist=[module_name])
-                env[module_name] = module
-                return module
-            except ImportError as e:
-                logger.warning(f"Could not import {module_name}: {e}")
-                return None
+        # Lazy import proxy class
+        class LazyProxy:
+            def __init__(self, module_name, import_path):
+                self._module_name = module_name
+                self._import_path = import_path
+                self._module = None
+            
+            def _ensure_module(self):
+                if self._module is None:
+                    try:
+                        # Special handling for matplotlib to prevent GUI issues
+                        if self._module_name == 'plt':
+                            import matplotlib
+                            matplotlib.use('Agg')
+                            
+                        self._module = __import__(self._import_path, fromlist=[self._module_name])
+                    except ImportError as e:
+                        logger.warning(f"Could not import {self._module_name}: {e}")
+                        raise e
+                return self._module
+
+            def __getattr__(self, name):
+                module = self._ensure_module()
+                return getattr(module, name)
+            
+            def __call__(self, *args, **kwargs):
+                module = self._ensure_module()
+                return module(*args, **kwargs)
+                
+            def __repr__(self):
+                if self._module is None:
+                    return f"<LazyProxy for {self._module_name}>"
+                return repr(self._module)
         
         # Add lazy import wrappers
-        env['plt'] = lambda: lazy_import('plt', 'matplotlib.pyplot')
-        env['sns'] = lambda: lazy_import('sns', 'seaborn')
-        env['px'] = lambda: lazy_import('px', 'plotly.express')
-        env['go'] = lambda: lazy_import('go', 'plotly.graph_objects')
+        env['plt'] = LazyProxy('plt', 'matplotlib.pyplot')
+        env['sns'] = LazyProxy('sns', 'seaborn')
+        env['px'] = LazyProxy('px', 'plotly.express')
+        env['go'] = LazyProxy('go', 'plotly.graph_objects')
         
         return env
     
     @classmethod
-    def _execute_with_timeout(cls, compiled_code, exec_globals, start_time) -> Dict[str, Any]:
+    def _execute_with_timeout(cls, code, exec_globals, start_time) -> Dict[str, Any]:
         """
         Execute code with timeout protection
         
         Args:
-            compiled_code: Compiled code object
+            code: Python code string
             exec_globals: Execution globals
             start_time: Execution start time
             
@@ -344,22 +367,59 @@ class SafeExecutor:
         import threading
         import queue
         
+        import io
+        import contextlib
+        import ast
+        
         result_queue = queue.Queue()
         
         def worker():
             """Worker function to execute code"""
             try:
-                exec(compiled_code, exec_globals)
+                # Capture stdout
+                stdout_capture = io.StringIO()
+                
+                with contextlib.redirect_stdout(stdout_capture):
+                    # Parse code to handle last expression
+                    tree = ast.parse(code)
+                    last_expr = None
+                    
+                    if tree.body and isinstance(tree.body[-1], ast.Expr):
+                        # Separate last expression
+                        last_node = tree.body.pop()
+                        last_expr_code = compile(ast.Expression(last_node.value), '<user_code_expr>', 'eval')
+                        
+                        # Compile remaining code
+                        if tree.body:
+                            module_code = compile(ast.Module(body=tree.body, type_ignores=[]), '<user_code>', 'exec')
+                            exec(module_code, exec_globals)
+                        
+                        # Evaluate last expression
+                        last_expr = eval(last_expr_code, exec_globals)
+                    else:
+                        # Just execute normally
+                        compiled_code = compile(code, '<user_code>', 'exec')
+                        exec(compiled_code, exec_globals)
+                
+                # Get captured output
+                text_output = stdout_capture.getvalue()
+                
+                # If last expression exists and is not None, append to output
+                if last_expr is not None:
+                    text_output += str(last_expr)
+                
                 result_queue.put({
                     'success': True,
                     'error': None,
-                    'traceback': None
+                    'traceback': None,
+                    'text_output': text_output
                 })
             except Exception as e:
                 result_queue.put({
                     'success': False,
                     'error': str(e),
-                    'traceback': traceback.format_exc()
+                    'traceback': traceback.format_exc(),
+                    'text_output': ""
                 })
         
         # Start execution thread
@@ -392,21 +452,25 @@ class SafeExecutor:
             }
     
     @classmethod
-    def _extract_results(cls, exec_globals, original_df) -> Dict[str, Any]:
+    def _extract_results(cls, exec_globals, original_df, text_output="") -> Dict[str, Any]:
         """
         Extract results from execution environment
         
         Args:
             exec_globals: Execution globals dictionary
             original_df: Original DataFrame
+            text_output: Captured text output
             
         Returns:
             Results dictionary
         """
+        import io
+        import base64
+        
         results = {
             'variables_created': [],
             'plots_generated': [],
-            'text_output': '',
+            'text_output': text_output,
             'warnings': []
         }
         
@@ -428,22 +492,50 @@ class SafeExecutor:
                         'value_preview': str(var_value)[:100]
                     })
         
-        # Check for plots (matplotlib or plotly figures)
+        # Check for active matplotlib figures
+        # We check directly using matplotlib.pyplot, as seaborn might have created figures
+        # without the user explicitly importing/using plt
+        try:
+            import matplotlib.pyplot as plt
+            
+            # Get all figure numbers
+            fignums = plt.get_fignums()
+            if fignums:
+                for i in fignums:
+                    fig = plt.figure(i)
+                    
+                    # Save figure to buffer
+                    buf = io.BytesIO()
+                    fig.savefig(buf, format='png', bbox_inches='tight')
+                    buf.seek(0)
+                    
+                    # Encode to base64
+                    img_str = base64.b64encode(buf.read()).decode('utf-8')
+                    
+                    results['plots_generated'].append({
+                        'type': 'image/png',
+                        'data': img_str
+                    })
+                    
+                    # Close figure to free memory
+                    plt.close(fig)
+        except Exception as e:
+            logger.warning(f"Error capturing matplotlib figures: {e}")
+
+        # Check for Plotly figures in variables
         for var_name, var_value in exec_globals.items():
             if var_name not in excluded:
-                var_type = type(var_value).__name__
-                if var_type in ['Figure', 'Axes', 'AxesSubplot']:
-                    results['plots_generated'].append({
-                        'name': var_name,
-                        'type': 'matplotlib',
-                        'figure': var_value
-                    })
-                elif hasattr(var_value, '_data_objs'):  # Plotly figure
-                    results['plots_generated'].append({
-                        'name': var_name,
-                        'type': 'plotly',
-                        'figure': var_value
-                    })
+                if hasattr(var_value, '_data_objs'):  # Plotly figure
+                    try:
+                        # Convert plotly figure to JSON
+                        fig_json = var_value.to_json()
+                        results['plots_generated'].append({
+                            'name': var_name,
+                            'type': 'plotly',
+                            'figure': json.loads(fig_json)
+                        })
+                    except Exception as e:
+                        logger.warning(f"Error capturing plotly figure {var_name}: {e}")
         
         # Check if dataframe was modified
         new_df = exec_globals.get('df', original_df)

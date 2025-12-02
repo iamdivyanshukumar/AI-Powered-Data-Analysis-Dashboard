@@ -186,6 +186,14 @@ def execute_cell(notebook_id):
                         },
                         'metadata': {}
                     })
+                elif plot['type'] == 'image/png':
+                    cell['outputs'].append({
+                        'output_type': 'display_data',
+                        'data': {
+                            'image/png': plot['data']
+                        },
+                        'metadata': {}
+                    })
             
             cell['execution_count'] = (cell.get('execution_count') or 0) + 1
             

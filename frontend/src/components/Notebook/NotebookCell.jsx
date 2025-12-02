@@ -297,6 +297,17 @@ const NotebookCell = ({
                   </pre>
                 )}
 
+                {/* Image Output (Matplotlib) */}
+                {output.output_type === 'display_data' && output.data && output.data['image/png'] && (
+                  <div className="bg-white p-2 rounded border border-border/50 flex justify-center">
+                    <img
+                      src={`data:image/png;base64,${output.data['image/png']}`}
+                      alt="Plot"
+                      className="max-w-full h-auto"
+                    />
+                  </div>
+                )}
+
                 {/* Plotly Visualizations */}
                 {output.output_type === 'display_data' && output.data && output.data['application/vnd.plotly.v1+json'] && (
                   <div className="bg-white p-2 rounded border border-border/50">

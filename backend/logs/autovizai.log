@@ -943,3 +943,168 @@
 2025-12-02 20:52:30 - app.core.safe_executor - INFO - Code executed successfully in 0.04s
 2025-12-02 20:52:35 - app.core.safe_executor - INFO - Code executed successfully in 0.04s
 2025-12-02 20:52:38 - app.core.safe_executor - INFO - Code executed successfully in 0.04s
+2025-12-02 20:55:13 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:55:13 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:55:14 - app - INFO - Database tables created
+2025-12-02 20:55:14 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:55:37 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:55:37 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:55:38 - app - INFO - Database tables created
+2025-12-02 20:55:38 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:55:39 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:55:39 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:55:40 - app - INFO - Database tables created
+2025-12-02 20:55:40 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:56:18 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:56:18 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:56:19 - app - INFO - Database tables created
+2025-12-02 20:56:19 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:56:19 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:56:19 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:56:20 - app - INFO - Database tables created
+2025-12-02 20:56:20 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:56:27 - app.core.state_manager - INFO - Created session f0196eb9-9be3-4e1d-a3f5-6c9786a4861b for user 2 with (4009, 12) dataframe
+2025-12-02 20:56:27,533 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded used_cars.csv [✓]
+2025-12-02 20:56:27 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 20:56:41,034 - agent.NotebookAgent - INFO - [llm_call] (12921.2ms) [✓]
+2025-12-02 20:56:41 - app.core.state_manager - INFO - Added notebook b0120b5f-c650-4a0f-b2a3-37093c09e9cd to session f0196eb9-9be3-4e1d-a3f5-6c9786a4861b
+2025-12-02 20:58:14 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:58:14 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:58:15 - app - INFO - Database tables created
+2025-12-02 20:58:15 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:59:16 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:59:16 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:59:17 - app - INFO - Database tables created
+2025-12-02 20:59:17 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:59:18 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:59:18 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:59:19 - app - INFO - Database tables created
+2025-12-02 20:59:19 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:59:27 - app.core.state_manager - INFO - Created session d889099b-7564-49f9-9ac5-9893e07ad358 for user 2 with (150460, 21) dataframe
+2025-12-02 20:59:27,679 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 20:59:27 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 20:59:37,097 - agent.NotebookAgent - INFO - [llm_call] (8792.3ms) [✓]
+2025-12-02 20:59:37 - app.core.state_manager - INFO - Added notebook 775944e0-0d41-4cf3-8a74-fabd480bb797 to session d889099b-7564-49f9-9ac5-9893e07ad358
+2025-12-02 20:59:46 - app.core.safe_executor - INFO - Code executed successfully in 0.05s
+2025-12-02 20:59:49 - app.core.safe_executor - INFO - Code executed successfully in 0.05s
+2025-12-02 20:59:54 - app.core.safe_executor - INFO - Code executed successfully in 0.04s
+2025-12-02 20:59:56 - app.core.safe_executor - INFO - Code executed successfully in 0.08s
+2025-12-02 20:59:59 - app.core.safe_executor - INFO - Code executed successfully in 0.06s
+2025-12-02 21:00:31 - app.core.safe_executor - INFO - Code executed successfully in 2.53s
+2025-12-02 21:05:24 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:05:24 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:05:25 - app - INFO - Database tables created
+2025-12-02 21:05:25 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:05:25 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:05:25 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:05:26 - app - INFO - Database tables created
+2025-12-02 21:05:26 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:09:09 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:09:09 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:09:10 - app - INFO - Database tables created
+2025-12-02 21:09:10 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:09:51 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:09:51 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:09:52 - app - INFO - Database tables created
+2025-12-02 21:09:52 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:09:52 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:09:52 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:09:53 - app - INFO - Database tables created
+2025-12-02 21:09:53 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:10:00 - app.core.state_manager - INFO - Created session 8dd6eed6-b65a-4291-b1cb-aa977f037dee for user 2 with (150460, 21) dataframe
+2025-12-02 21:10:00,910 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 21:10:00 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 21:10:00 - app.core.state_manager - INFO - Added notebook f2d1501c-27fe-48f3-9ffe-d8f594250fff to session 8dd6eed6-b65a-4291-b1cb-aa977f037dee
+2025-12-02 21:10:22 - app.core.safe_executor - INFO - Code executed successfully in 0.05s
+2025-12-02 21:10:24 - app.core.safe_executor - INFO - Code executed successfully in 0.04s
+2025-12-02 21:10:33 - app.core.safe_executor - INFO - Code executed successfully in 0.07s
+2025-12-02 21:13:56 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:13:56 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:13:57 - app - INFO - Database tables created
+2025-12-02 21:13:57 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:13:57 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:13:57 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:13:58 - app - INFO - Database tables created
+2025-12-02 21:13:58 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:14:07 - app.core.state_manager - INFO - Created session d096cdb1-7ad5-4d34-a63b-6fd8f9b3f8bc for user 2 with (150460, 21) dataframe
+2025-12-02 21:14:07,789 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 21:14:07 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 21:14:07 - app.core.state_manager - INFO - Added notebook 7dd3b188-49d0-4e62-965c-27b0841c253f to session d096cdb1-7ad5-4d34-a63b-6fd8f9b3f8bc
+2025-12-02 21:14:15 - app.core.safe_executor - INFO - Code executed successfully in 0.05s
+2025-12-02 21:14:17 - app.core.safe_executor - INFO - Code executed successfully in 0.04s
+2025-12-02 21:14:21 - app.core.safe_executor - INFO - Code executed successfully in 0.07s
+2025-12-02 21:16:40 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:16:40 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:16:41 - app - INFO - Database tables created
+2025-12-02 21:16:41 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:16:41 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:16:41 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:16:42 - app - INFO - Database tables created
+2025-12-02 21:16:42 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:17:03 - app.core.state_manager - INFO - Created session 4e4b1b3e-0bd0-4ade-9fae-3515af170625 for user 2 with (150460, 21) dataframe
+2025-12-02 21:17:03,533 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 21:17:03 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 21:17:03 - app.core.state_manager - INFO - Added notebook ff2ee2a1-b242-4ff8-8978-426b3719943f to session 4e4b1b3e-0bd0-4ade-9fae-3515af170625
+2025-12-02 21:17:15 - app.core.safe_executor - INFO - Code executed successfully in 0.04s
+2025-12-02 21:17:18 - app.core.safe_executor - INFO - Code executed successfully in 0.04s
+2025-12-02 21:17:21 - app.core.safe_executor - INFO - Code executed successfully in 0.07s
+2025-12-02 21:18:50 - app.core.safe_executor - INFO - Code executed successfully in 0.04s
+2025-12-02 21:22:05 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:22:05 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:22:06 - app - INFO - Database tables created
+2025-12-02 21:22:06 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:22:16 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:22:16 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:22:17 - app - INFO - Database tables created
+2025-12-02 21:22:17 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:22:17 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:22:17 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:22:18 - app - INFO - Database tables created
+2025-12-02 21:22:18 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:22:40 - app.core.state_manager - INFO - Created session f5eed5d0-b550-4f04-9a66-d95781cb4acc for user 2 with (150460, 21) dataframe
+2025-12-02 21:22:40,860 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 21:22:40 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 21:22:40 - app.core.state_manager - INFO - Added notebook a12800e3-fbf2-43df-a091-83b2453f56c2 to session f5eed5d0-b550-4f04-9a66-d95781cb4acc
+2025-12-02 21:22:48 - app.core.safe_executor - INFO - Code executed successfully in 0.05s
+2025-12-02 21:22:50 - app.core.safe_executor - INFO - Code executed successfully in 0.04s
+2025-12-02 21:22:53 - app.core.safe_executor - INFO - Code executed successfully in 0.06s
+2025-12-02 21:23:01 - app.core.safe_executor - INFO - Code executed successfully in 0.53s
+2025-12-02 21:26:25 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:26:25 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:26:26 - app - INFO - Database tables created
+2025-12-02 21:26:26 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:26:26 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:26:26 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:26:27 - app - INFO - Database tables created
+2025-12-02 21:26:27 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:26:36 - app.core.state_manager - INFO - Created session 61d132d9-3fae-42b7-ad4f-7867449ec117 for user 2 with (150460, 21) dataframe
+2025-12-02 21:26:36,618 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 21:26:36 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 21:26:36 - app.core.state_manager - INFO - Added notebook 84b19fe8-307d-43bc-afc9-43a666044af0 to session 61d132d9-3fae-42b7-ad4f-7867449ec117
+2025-12-02 21:26:42 - app.core.safe_executor - INFO - Code executed successfully in 0.04s
+2025-12-02 21:26:47 - app.core.safe_executor - INFO - Code executed successfully in 0.04s
+2025-12-02 21:26:50 - app.core.safe_executor - INFO - Code executed successfully in 0.06s
+2025-12-02 21:27:07 - app.core.safe_executor - INFO - Code executed successfully in 0.43s
+2025-12-02 21:29:10 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:29:10 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:29:12 - app - INFO - Database tables created
+2025-12-02 21:29:12 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:30:58 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:30:58 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:30:59 - app - INFO - Database tables created
+2025-12-02 21:30:59 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:30:59 - app - INFO - Logging configured. Level: INFO
+2025-12-02 21:30:59 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 21:31:00 - app - INFO - Database tables created
+2025-12-02 21:31:00 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 21:31:16 - app.core.state_manager - INFO - Created session 005c5dab-e8c2-4a1a-86f7-37f64be35dcb for user 2 with (150460, 21) dataframe
+2025-12-02 21:31:16,646 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 21:31:16 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 21:31:16 - app.core.state_manager - INFO - Added notebook 5f7a0fce-1b39-4d76-bce0-83b2058fe350 to session 005c5dab-e8c2-4a1a-86f7-37f64be35dcb
+2025-12-02 21:31:45 - app.core.safe_executor - INFO - Code executed successfully in 0.18s
+2025-12-02 21:31:47 - app.core.safe_executor - INFO - Code executed successfully in 0.04s
+2025-12-02 21:31:49 - app.core.safe_executor - INFO - Code executed successfully in 0.06s
+2025-12-02 21:31:59 - app.core.safe_executor - INFO - Code executed successfully in 0.79s
+2025-12-02 21:32:14 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 21:32:14 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 21:32:22,233 - agent.NotebookAgent - INFO - [llm_call] (7029.6ms) [✓]

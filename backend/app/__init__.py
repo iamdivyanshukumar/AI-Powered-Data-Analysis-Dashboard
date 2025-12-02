@@ -10,6 +10,10 @@ def create_app(config_class=Config):
     setup_logging()
     logger = logging.getLogger(__name__)
     
+    # Configure Matplotlib to use Agg backend (headless) to prevent GUI crashes on macOS
+    import matplotlib
+    matplotlib.use('Agg')
+    
     app = Flask(__name__)
     app.config.from_object(config_class)
     

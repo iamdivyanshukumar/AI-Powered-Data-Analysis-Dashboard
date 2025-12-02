@@ -68,59 +68,46 @@ class NotebookAgent(BaseAgent):
 
     async def generate_initial_notebook(self, filename, analysis_type="comprehensive_eda", dataframe_stats=None):
         """
-        Generates the starting notebook structure using LLM.
+        Generates the starting notebook structure using hardcoded template.
+        Skips LLM call for faster, deterministic startup.
         """
         try:
-            # Construct prompt for LLM
-            prompt = f"""
-            You are an expert Data Scientist. Generate a JSON structure for a Jupyter Notebook to perform a {analysis_type.replace('_', ' ')} on the dataset '{filename}'.
+            cells = []
             
-            The dataset has the following characteristics:
-            {json.dumps(dataframe_stats, indent=2) if dataframe_stats else "No stats available"}
+            # 1. Markdown Title & Description
+            cells.append(self._create_markdown_cell([
+                f"# Analysis of {filename}",
+                f"**Type:** {analysis_type.replace('_', ' ').title()}",
+                "",
+                "This notebook performs an initial exploration of the dataset.",
+                "The data is already loaded into the environment as `df`."
+            ]))
             
-            Requirements:
-            1. Create a logical flow: Introduction -> Setup -> Data Loading -> Basic Inspection -> Initial Visualizations.
-            2. Use 'pandas', 'numpy', and 'plotly.express' for visualizations.
-            3. The output MUST be a valid JSON object with a 'cells' key containing a list of cell objects.
-            4. Each cell object must have 'cell_type' ('code' or 'markdown') and 'source' (list of strings).
-            5. Do NOT include 'outputs' or 'execution_count' in the response.
-            6. The dataframe is ALREADY LOADED as variable 'df'. Do NOT generate code to read the CSV file.
-            7. Add comments in code cells to explain the steps.
+            # 2. Imports & Setup
+            cells.append(self._create_code_cell([
+                "import pandas as pd",
+                "import numpy as np",
+                "import plotly.express as px",
+                "import plotly.graph_objects as go",
+                "",
+                "# Display settings",
+                "pd.set_option('display.max_columns', None)"
+            ]))
             
-            Response Format:
-            {{
-                "cells": [
-                    {{ "cell_type": "markdown", "source": ["# Title", "Description"] }},
-                    {{ "cell_type": "code", "source": ["import pandas as pd", "import plotly.express as px", "df.head()"] }}
-                ]
-            }}
-            """
-
-            # Call LLM
-            response_text = await self.call_llm(prompt, system_prompt="You are a helpful AI data analysis assistant. Output ONLY valid JSON.")
+            # 3. Data Inspection
+            cells.append(self._create_code_cell([
+                "# Check the shape of the dataset",
+                "print('Dataset Shape:', df.shape)",
+                "",
+                "# Display the first few rows",
+                "df.head()"
+            ]))
             
-            # Parse response
-            try:
-                # Clean markdown code blocks if present
-                if "```json" in response_text:
-                    response_text = response_text.split("```json")[1].split("```")[0].strip()
-                elif "```" in response_text:
-                    response_text = response_text.split("```")[1].split("```")[0].strip()
-                    
-                response_data = json.loads(response_text)
-                cells_data = response_data.get('cells', [])
-            except json.JSONDecodeError:
-                self.logger.log_error("json_parse_error", "Failed to parse LLM response", {"response": response_text})
-                # Fallback to basic template if parsing fails
-                return self._generate_fallback_notebook(filename, analysis_type)
-
-            # Convert to internal cell format (adding IDs, formatting source)
-            final_cells = []
-            for cell in cells_data:
-                if cell['cell_type'] == 'code':
-                    final_cells.append(self._create_code_cell(cell['source']))
-                elif cell['cell_type'] == 'markdown':
-                    final_cells.append(self._create_markdown_cell(cell['source']))
+            # 4. Basic Info
+            cells.append(self._create_code_cell([
+                "# Check data types and missing values",
+                "df.info()"
+            ]))
 
             # Construct Final Notebook Object
             notebook_structure = {
@@ -144,7 +131,7 @@ class NotebookAgent(BaseAgent):
                 },
                 "nbformat": 4,
                 "nbformat_minor": 4,
-                "cells": final_cells
+                "cells": cells
             }
 
             return {
@@ -153,7 +140,7 @@ class NotebookAgent(BaseAgent):
                     "notebook": notebook_structure,
                     "summary": {
                         "title": f"Analysis of {filename}",
-                        "cell_count": len(final_cells)
+                        "cell_count": len(cells)
                     }
                 }
             }
