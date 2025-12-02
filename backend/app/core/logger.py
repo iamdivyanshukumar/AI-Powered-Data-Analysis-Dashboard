@@ -144,6 +144,31 @@ class AgentLogger:
             error=error_message
         )
 
+    def log_llm_call(self,
+                    model: str,
+                    prompt_length: int,
+                    response_length: int,
+                    duration_ms: float,
+                    success: bool,
+                    error: str = None):
+        """
+        Log an LLM API call
+        """
+        details = {
+            'model': model,
+            'prompt_length': prompt_length,
+            'response_length': response_length
+        }
+        
+        return self.log_operation(
+            operation="llm_call",
+            level=LogLevel.INFO if success else LogLevel.ERROR,
+            details=details,
+            duration_ms=duration_ms,
+            success=success,
+            error=error
+        )
+
 # --- MISSING DECORATOR RESTORED HERE ---
 def log_agent_operation(func):
     """

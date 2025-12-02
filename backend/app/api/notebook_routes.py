@@ -89,7 +89,7 @@ def upload_file():
 # --- 2. CREATE NOTEBOOK ENDPOINT ---
 @notebook_bp.route('/create', methods=['POST'])
 @login_required
-def create_notebook():
+async def create_notebook():
     try:
         data = request.json
         session_id = data.get('session_id')
@@ -97,13 +97,18 @@ def create_notebook():
         if not session_id:
             return jsonify({'success': False, 'error': 'Session ID required'}), 400
 
+        # Get dataframe to generate stats
+        from app.core.state_manager import SessionState
+        df = SessionState.get_dataframe(session_id)
+        stats = get_dataset_stats(df) if df is not None else None
+
         agent = NotebookAgent(session_id=session_id)
         
-        # In a real app, you'd fetch the dataset path from DB using session_id
-        # Here we mock it or pass it from frontend if needed
-        result = agent.generate_initial_notebook(
+        # Generate notebook using AI
+        result = await agent.generate_initial_notebook(
             filename="uploaded_data.csv",
-            analysis_type=data.get('analysis_type', 'comprehensive_eda')
+            analysis_type=data.get('analysis_type', 'comprehensive_eda'),
+            dataframe_stats=stats
         )
         
         if result['success']:
@@ -112,7 +117,6 @@ def create_notebook():
             notebook['title'] = "Exploratory Data Analysis"
             
             # Save notebook to session state
-            from app.core.state_manager import SessionState
             SessionState.add_notebook(session_id, notebook)
             
             return jsonify({
@@ -392,7 +396,7 @@ def generate_code_from_instruction(instruction, df):
 # --- 7. PROCESS INSTRUCTION ENDPOINT (Ghost Cell Generation) ---
 @notebook_bp.route('/<notebook_id>/process_instruction', methods=['POST'])
 @login_required
-def process_instruction(notebook_id):
+async def process_instruction(notebook_id):
     """
     Process natural language instruction and generate Ghost Cells
     This is the core of the AI Junior Analyst feature
@@ -420,48 +424,37 @@ def process_instruction(notebook_id):
         if df is None:
             return jsonify({'success': False, 'error': 'No dataframe in session'}), 404
         
-        # Try AI agents first, fallback to rule-based generation
+        # Generate Text Twin for context
+        from app.core.text_twin_generator import TextTwinGenerator
+        text_twin_gen = TextTwinGenerator()
+        text_twin = text_twin_gen.generate_twin(df)
+        
+        # Use NotebookAgent to process instruction
+        agent = NotebookAgent(session_id=session_id)
+        result = await agent.process_instruction(instruction, dataframe_context=text_twin)
+        
         proposed_cells = []
-        try:
-            # Use orchestrator to process instruction
-            from app.agents.orchestrator_agent import OrchestratorAgent
-            from app.core.text_twin_generator import TextTwinGenerator
+        if result.get('success') and 'proposed_code' in result.get('data', {}):
+            code_cells = result['data']['proposed_code']
             
-            orchestrator = OrchestratorAgent(session_id=session_id)
-            text_twin_gen = TextTwinGenerator()
-            text_twin = text_twin_gen.generate_twin(df)
-            
-            # Generate proposed code cells based on instruction
-            import asyncio
-            result = asyncio.run(orchestrator.eda_specialist.execute({
-                'dataframe_twin': text_twin,
-                'user_instruction': instruction,
-                'generate_code': True
-            }))
-            
-            # Convert result to Ghost Cells
-            if result.get('success') and 'proposed_code' in result.get('data', {}):
-                code_cells = result['data']['proposed_code']
-                
-                for idx, code_block in enumerate(code_cells):
-                    ghost_cell = {
-                        "id": f"ghost_{uuid.uuid4()}",
-                        "cell_type": "code",
-                        "source": code_block['code'].split('\n'),
-                        "metadata": {
-                            "ghost": True,
-                            "explanation": code_block.get('explanation', ''),
-                            "confidence": code_block.get('confidence', 0.8)
-                        },
-                        "outputs": []
-                    }
-                    proposed_cells.append(ghost_cell)
-        except Exception as ai_error:
-            # AI failed, use fallback code generator
-            print(f"AI generation failed: {ai_error}, using fallback")
-            code_suggestions = generate_code_from_instruction(instruction, df)
-            
-            for code_block in code_suggestions:
+            for idx, code_block in enumerate(code_cells):
+                ghost_cell = {
+                    "id": f"ghost_{uuid.uuid4()}",
+                    "cell_type": "code",
+                    "source": code_block['code'].split('\n'),
+                    "metadata": {
+                        "ghost": True,
+                        "explanation": code_block.get('explanation', ''),
+                        "confidence": code_block.get('confidence', 0.8)
+                    },
+                    "outputs": []
+                }
+                proposed_cells.append(ghost_cell)
+        else:
+             # Fallback if AI fails
+             logger.log_error('ai_generation_failed', result.get('error', 'Unknown error'))
+             code_suggestions = generate_code_from_instruction(instruction, df)
+             for code_block in code_suggestions:
                 ghost_cell = {
                     "id": f"ghost_{uuid.uuid4()}",
                     "cell_type": "code",
@@ -474,7 +467,7 @@ def process_instruction(notebook_id):
                     "outputs": []
                 }
                 proposed_cells.append(ghost_cell)
-        
+
         # Add proposed cells to notebook
         if proposed_cells:
             if 'cells' not in notebook:

@@ -48,7 +48,7 @@ const apiService = {
     // This ensures NO global 'application/json' headers interfere.
     const token = localStorage.getItem('autovizai_token')
 
-    return axios.post('/api/data/upload', formData, {
+    return axios.post('/api/notebook/upload', formData, {
       headers: {
         'Authorization': token ? `Bearer ${token}` : undefined,
         // Explicitly undefined allows the browser to generate the boundary
@@ -63,7 +63,7 @@ const apiService = {
   getLiveVariables: (notebookId) =>
     axiosInstance.get(`/notebook/${notebookId}/live_variables`),
 
-  createNotebook: (data) => axiosInstance.post('/data/create', data),
+  createNotebook: (data) => axiosInstance.post('/notebook/create', data),
 
   updateNotebookCell: (notebookId, data) =>
     axiosInstance.post(`/notebook/${notebookId}/update`, data),

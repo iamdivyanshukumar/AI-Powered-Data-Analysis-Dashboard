@@ -164,7 +164,7 @@ class BaseAgent(ABC):
                       system_prompt: str = None,
                       **kwargs) -> str:
         """
-        Call LLM with error handling and logging
+        Call LLM with error handling and logging using LangChain
         
         Args:
             prompt: User prompt
@@ -175,57 +175,59 @@ class BaseAgent(ABC):
             LLM response
         """
         import time
-        from openai import OpenAI
+        from langchain_openai import ChatOpenAI
+        from langchain_core.messages import HumanMessage, SystemMessage
         from app.config import Config
         
         start_time = time.time()
         
         try:
-            # Initialize OpenAI client
-            client = OpenAI(api_key=Config.OPENAI_API_KEY)
+            # Initialize LangChain ChatOpenAI
+            # Tracing is automatically enabled if LANGCHAIN_TRACING_V2=true in env
+            chat = ChatOpenAI(
+                model=self.config.model,
+                temperature=self.config.temperature,
+                max_tokens=self.config.max_tokens,
+                timeout=self.config.timeout,
+                api_key=Config.OPENAI_API_KEY,
+                **kwargs
+            )
             
             # Prepare messages
             messages = []
             if system_prompt:
-                messages.append({"role": "system", "content": system_prompt})
-            messages.append({"role": "user", "content": prompt})
+                messages.append(SystemMessage(content=system_prompt))
+            messages.append(HumanMessage(content=prompt))
             
             # Make API call
-            response = client.chat.completions.create(
-                model=self.config.model,
-                messages=messages,
-                temperature=self.config.temperature,
-                max_tokens=self.config.max_tokens,
-                timeout=self.config.timeout,
-                **kwargs
-            )
-            
-            # Extract response
-            result = response.choices[0].message.content
+            response = await chat.ainvoke(messages)
+            result = response.content
             
             # Log success
             duration_ms = (time.time() - start_time) * 1000
-            self.logger.log_llm_call(
-                model=self.config.model,
-                prompt_length=len(prompt),
-                response_length=len(result),
-                duration_ms=duration_ms,
-                success=True
-            )
+            if hasattr(self.logger, 'log_llm_call'):
+                self.logger.log_llm_call(
+                    model=self.config.model,
+                    prompt_length=len(prompt),
+                    response_length=len(result),
+                    duration_ms=duration_ms,
+                    success=True
+                )
             
             return result
             
         except Exception as e:
             # Log error
             duration_ms = (time.time() - start_time) * 1000
-            self.logger.log_llm_call(
-                model=self.config.model,
-                prompt_length=len(prompt),
-                response_length=0,
-                duration_ms=duration_ms,
-                success=False,
-                error=str(e)
-            )
+            if hasattr(self.logger, 'log_llm_call'):
+                self.logger.log_llm_call(
+                    model=self.config.model,
+                    prompt_length=len(prompt),
+                    response_length=0,
+                    duration_ms=duration_ms,
+                    success=False,
+                    error=str(e)
+                )
             
             raise
     

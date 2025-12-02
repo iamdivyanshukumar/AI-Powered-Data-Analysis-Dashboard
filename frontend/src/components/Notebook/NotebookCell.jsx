@@ -137,7 +137,7 @@ const NotebookCell = ({
           <div className="relative group/play">
             <button
               onClick={(e) => { e.stopPropagation(); handleExecute(); }}
-              disabled={!cell.executable && !isExecuting}
+              disabled={isExecuting}
               className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${isExecuting
                 ? 'bg-blue-600 text-white animate-pulse'
                 : executionResult
@@ -272,6 +272,11 @@ const NotebookCell = ({
                     renderLineHighlight: 'none',
                     hideCursorInOverviewRuler: true,
                     overviewRulerBorder: false,
+                    onMount: (editor, monaco) => {
+                      editor.addCommand(monaco.KeyMod.Shift | monaco.KeyCode.Enter, () => {
+                        handleExecute()
+                      })
+                    }
                   }}
                 />
               </div>
@@ -280,56 +285,60 @@ const NotebookCell = ({
         </div >
 
         {/* Execution Results - Displayed below code */}
-        {
-          executionResult && (cell.type === 'code' || cell.cell_type === 'code') && (
-            <div className="mt-2 p-2">
-              {executionResult.success ? (
-                <div className="space-y-4">
-                  {/* Text Output */}
-                  {executionResult.text_output && (
-                    <pre className="text-sm font-mono whitespace-pre-wrap text-foreground/90 overflow-x-auto pl-2 border-l-2 border-transparent">
-                      {executionResult.text_output}
-                    </pre>
-                  )}
+        {/* Outputs (Always show if present) */}
+        {(cell.type === 'code' || cell.cell_type === 'code') && cell.outputs && cell.outputs.length > 0 && (
+          <div className="mt-2 p-2 space-y-4">
+            {cell.outputs.map((output, index) => (
+              <div key={index} className="output-result">
+                {/* Text Output */}
+                {output.output_type === 'stream' && (
+                  <pre className="text-sm font-mono whitespace-pre-wrap text-foreground/90 overflow-x-auto pl-2 border-l-2 border-transparent">
+                    {output.text}
+                  </pre>
+                )}
 
-                  {/* Visualizations */}
-                  {executionResult.outputs?.map((output, index) => (
-                    <div key={index} className="output-result">
-                      {output.type === 'plot' && output.data && (
-                        <div className="bg-white p-2 rounded border border-border/50">
-                          <PlotlyRenderer data={output.data} />
-                        </div>
-                      )}
-                    </div>
-                  ))}
-
-                  {/* Execution Time (Subtle) */}
-                  {executionResult.execution_time && (
-                    <div className="text-xs text-muted-foreground mt-2 pl-2">
-                      Executed in {executionResult.execution_time}s
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <div className="bg-destructive/5 border-l-2 border-destructive p-3 rounded-r">
-                  <div className="font-mono text-sm text-destructive whitespace-pre-wrap">
-                    {executionResult.error || 'Unknown error occurred'}
+                {/* Plotly Visualizations */}
+                {output.output_type === 'display_data' && output.data && output.data['application/vnd.plotly.v1+json'] && (
+                  <div className="bg-white p-2 rounded border border-border/50">
+                    <PlotlyRenderer
+                      data={output.data['application/vnd.plotly.v1+json'].data}
+                      layout={output.data['application/vnd.plotly.v1+json'].layout}
+                    />
                   </div>
-                  {executionResult.traceback && (
-                    <details className="mt-2">
-                      <summary className="text-xs text-muted-foreground cursor-pointer hover:text-foreground">
-                        View traceback
-                      </summary>
-                      <pre className="mt-2 text-xs font-mono whitespace-pre-wrap bg-black/5 p-2 rounded text-foreground">
-                        {executionResult.traceback}
-                      </pre>
-                    </details>
-                  )}
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Execution Status / Error (Only if executionResult exists) */}
+        {executionResult && (cell.type === 'code' || cell.cell_type === 'code') && (
+          <div className="mt-1 px-2">
+            {executionResult.success ? (
+              executionResult.execution_time && (
+                <div className="text-xs text-muted-foreground pl-2">
+                  Executed in {executionResult.execution_time.toFixed(3)}s
                 </div>
-              )}
-            </div>
-          )
-        }
+              )
+            ) : (
+              <div className="bg-destructive/5 border-l-2 border-destructive p-3 rounded-r">
+                <div className="font-mono text-sm text-destructive whitespace-pre-wrap">
+                  {executionResult.error || 'Unknown error occurred'}
+                </div>
+                {executionResult.traceback && (
+                  <details className="mt-2">
+                    <summary className="text-xs text-muted-foreground cursor-pointer hover:text-foreground">
+                      View traceback
+                    </summary>
+                    <pre className="mt-2 text-xs font-mono whitespace-pre-wrap bg-black/5 p-2 rounded text-foreground">
+                      {executionResult.traceback}
+                    </pre>
+                  </details>
+                )}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   )

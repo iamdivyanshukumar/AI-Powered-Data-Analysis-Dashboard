@@ -58,6 +58,7 @@ const MonacoWrapper = ({ value, onChange, language, height, options = {}, theme 
         theme="autovizai"
         onChange={onChange}
         options={defaultOptions}
+        onMount={options.onMount}
         beforeMount={handleEditorWillMount}
         loading={
           <div className="flex items-center justify-center h-full">

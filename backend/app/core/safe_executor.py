@@ -118,7 +118,7 @@ class SafeExecutor:
                 }
             
             # Execute with timeout protection
-            result = cls._execute_with_timeout(compiled_code, exec_globals)
+            result = cls._execute_with_timeout(compiled_code, exec_globals, start_time)
             
             if result['timeout']:
                 return {
@@ -301,6 +301,7 @@ class SafeExecutor:
                 'type': type,
                 'hasattr': hasattr,
                 'getattr': getattr,
+                '__import__': __import__,  # Allow imports (validated by _validate_code)
             }
         }
         
@@ -328,13 +329,14 @@ class SafeExecutor:
         return env
     
     @classmethod
-    def _execute_with_timeout(cls, compiled_code, exec_globals) -> Dict[str, Any]:
+    def _execute_with_timeout(cls, compiled_code, exec_globals, start_time) -> Dict[str, Any]:
         """
         Execute code with timeout protection
         
         Args:
             compiled_code: Compiled code object
             exec_globals: Execution globals
+            start_time: Execution start time
             
         Returns:
             Execution result dictionary
@@ -379,14 +381,14 @@ class SafeExecutor:
         try:
             result = result_queue.get_nowait()
             result['timeout'] = False
-            result['execution_time'] = (datetime.now() - cls._execution_start_time).total_seconds()
+            result['execution_time'] = (datetime.now() - start_time).total_seconds()
             return result
         except queue.Empty:
             return {
                 'success': False,
                 'error': 'Execution failed without error',
                 'timeout': False,
-                'execution_time': (datetime.now() - cls._execution_start_time).total_seconds()
+                'execution_time': (datetime.now() - start_time).total_seconds()
             }
     
     @classmethod

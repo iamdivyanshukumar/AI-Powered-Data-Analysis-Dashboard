@@ -653,3 +653,293 @@
 2025-12-02 19:04:17 - app.agents.orchestrator_agent - INFO - Orchestrator agent initialized
 2025-12-02 19:04:17 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
 2025-12-02 19:04:17,235 - agent.EDASpecialist - INFO - [end_execute] (0.0ms) [✓]
+2025-12-02 19:13:25 - app.agents.base_agent - INFO - Initialized agent: Orchestrator (Coordinates data analysis workflow between specialist agents)
+2025-12-02 19:13:25 - app.agents.base_agent - INFO - Initialized agent: EDASpecialist (Performs comprehensive exploratory data analysis)
+2025-12-02 19:13:25 - app.agents.eda_specialist - INFO - EDA Specialist agent initialized
+2025-12-02 19:13:25 - app.agents.base_agent - INFO - Initialized agent: Storyteller (Creates narrative insights and business stories from data)
+2025-12-02 19:13:25 - app.agents.storyteller_agent - INFO - Storyteller agent initialized
+2025-12-02 19:13:25 - app.agents.base_agent - INFO - Initialized agent: QualityInspector (Comprehensive data quality assessment and validation)
+2025-12-02 19:13:25 - app.agents.quality_inspector - INFO - Quality Inspector agent initialized
+2025-12-02 19:13:25 - app.agents.base_agent - INFO - Initialized agent: DataEngineerAgent (Handles data cleaning, preprocessing, and feature engineering)
+2025-12-02 19:13:25 - app.agents.base_agent - INFO - Initialized agent: MLSpecialist (Performs ML training and evaluation)
+2025-12-02 19:13:25 - app.agents.orchestrator_agent - INFO - Orchestrator agent initialized
+2025-12-02 19:13:25 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 19:13:25,830 - agent.EDASpecialist - INFO - [end_execute] (0.0ms) [✓]
+2025-12-02 19:24:43 - app.core.state_manager - INFO - Created session 9694504d-958d-4ff9-a372-bf28bc4c1894 for user 2 with (150460, 21) dataframe
+2025-12-02 19:24:43,209 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 19:24:43 - app.core.state_manager - INFO - Added notebook 11758aa6-7e66-4d9b-8fe5-f183fdde7c2d to session 9694504d-958d-4ff9-a372-bf28bc4c1894
+2025-12-02 19:24:44 - app.agents.base_agent - INFO - Initialized agent: Orchestrator (Coordinates data analysis workflow between specialist agents)
+2025-12-02 19:24:44 - app.agents.base_agent - INFO - Initialized agent: EDASpecialist (Performs comprehensive exploratory data analysis)
+2025-12-02 19:24:44 - app.agents.eda_specialist - INFO - EDA Specialist agent initialized
+2025-12-02 19:24:44 - app.agents.base_agent - INFO - Initialized agent: Storyteller (Creates narrative insights and business stories from data)
+2025-12-02 19:24:44 - app.agents.storyteller_agent - INFO - Storyteller agent initialized
+2025-12-02 19:24:44 - app.agents.base_agent - INFO - Initialized agent: QualityInspector (Comprehensive data quality assessment and validation)
+2025-12-02 19:24:44 - app.agents.quality_inspector - INFO - Quality Inspector agent initialized
+2025-12-02 19:24:44 - app.agents.base_agent - INFO - Initialized agent: DataEngineerAgent (Handles data cleaning, preprocessing, and feature engineering)
+2025-12-02 19:24:44 - app.agents.base_agent - INFO - Initialized agent: MLSpecialist (Performs ML training and evaluation)
+2025-12-02 19:24:44 - app.agents.orchestrator_agent - INFO - Orchestrator agent initialized
+2025-12-02 19:24:45 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 19:24:45,324 - agent.EDASpecialist - INFO - [end_execute] (0.0ms) [✓]
+2025-12-02 19:24:57 - app.agents.base_agent - INFO - Initialized agent: Orchestrator (Coordinates data analysis workflow between specialist agents)
+2025-12-02 19:24:57 - app.agents.base_agent - INFO - Initialized agent: EDASpecialist (Performs comprehensive exploratory data analysis)
+2025-12-02 19:24:57 - app.agents.eda_specialist - INFO - EDA Specialist agent initialized
+2025-12-02 19:24:57 - app.agents.base_agent - INFO - Initialized agent: Storyteller (Creates narrative insights and business stories from data)
+2025-12-02 19:24:57 - app.agents.storyteller_agent - INFO - Storyteller agent initialized
+2025-12-02 19:24:57 - app.agents.base_agent - INFO - Initialized agent: QualityInspector (Comprehensive data quality assessment and validation)
+2025-12-02 19:24:57 - app.agents.quality_inspector - INFO - Quality Inspector agent initialized
+2025-12-02 19:24:57 - app.agents.base_agent - INFO - Initialized agent: DataEngineerAgent (Handles data cleaning, preprocessing, and feature engineering)
+2025-12-02 19:24:57 - app.agents.base_agent - INFO - Initialized agent: MLSpecialist (Performs ML training and evaluation)
+2025-12-02 19:24:57 - app.agents.orchestrator_agent - INFO - Orchestrator agent initialized
+2025-12-02 19:24:58 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 19:24:58,586 - agent.EDASpecialist - INFO - [end_execute] (0.0ms) [✓]
+2025-12-02 19:27:37 - app - INFO - Logging configured. Level: INFO
+2025-12-02 19:27:37 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 19:27:38 - app - INFO - Database tables created
+2025-12-02 19:27:38 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 19:27:39 - app - INFO - Logging configured. Level: INFO
+2025-12-02 19:27:39 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 19:27:40 - app - INFO - Database tables created
+2025-12-02 19:27:40 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 19:27:57 - app.core.state_manager - INFO - Created session eebdefca-6782-4006-82dc-fa11c5d8c19c for user 2 with (150460, 21) dataframe
+2025-12-02 19:27:57,849 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 19:27:57 - app.core.state_manager - INFO - Added notebook 72489dc7-ce99-4ef0-99b9-fb96f2111c21 to session eebdefca-6782-4006-82dc-fa11c5d8c19c
+2025-12-02 19:28:40 - app.agents.base_agent - INFO - Initialized agent: Orchestrator (Coordinates data analysis workflow between specialist agents)
+2025-12-02 19:28:40 - app.agents.base_agent - INFO - Initialized agent: EDASpecialist (Performs comprehensive exploratory data analysis)
+2025-12-02 19:28:40 - app.agents.eda_specialist - INFO - EDA Specialist agent initialized
+2025-12-02 19:28:40 - app.agents.base_agent - INFO - Initialized agent: Storyteller (Creates narrative insights and business stories from data)
+2025-12-02 19:28:40 - app.agents.storyteller_agent - INFO - Storyteller agent initialized
+2025-12-02 19:28:40 - app.agents.base_agent - INFO - Initialized agent: QualityInspector (Comprehensive data quality assessment and validation)
+2025-12-02 19:28:40 - app.agents.quality_inspector - INFO - Quality Inspector agent initialized
+2025-12-02 19:28:40 - app.agents.base_agent - INFO - Initialized agent: DataEngineerAgent (Handles data cleaning, preprocessing, and feature engineering)
+2025-12-02 19:28:40 - app.agents.base_agent - INFO - Initialized agent: MLSpecialist (Performs ML training and evaluation)
+2025-12-02 19:28:40 - app.agents.orchestrator_agent - INFO - Orchestrator agent initialized
+2025-12-02 19:28:41 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 19:28:41,045 - agent.EDASpecialist - INFO - [end_execute] (0.0ms) [✓]
+2025-12-02 19:30:37 - app.agents.base_agent - INFO - Initialized agent: Orchestrator (Coordinates data analysis workflow between specialist agents)
+2025-12-02 19:30:37 - app.agents.base_agent - INFO - Initialized agent: EDASpecialist (Performs comprehensive exploratory data analysis)
+2025-12-02 19:30:37 - app.agents.eda_specialist - INFO - EDA Specialist agent initialized
+2025-12-02 19:30:37 - app.agents.base_agent - INFO - Initialized agent: Storyteller (Creates narrative insights and business stories from data)
+2025-12-02 19:30:37 - app.agents.storyteller_agent - INFO - Storyteller agent initialized
+2025-12-02 19:30:37 - app.agents.base_agent - INFO - Initialized agent: QualityInspector (Comprehensive data quality assessment and validation)
+2025-12-02 19:30:37 - app.agents.quality_inspector - INFO - Quality Inspector agent initialized
+2025-12-02 19:30:37 - app.agents.base_agent - INFO - Initialized agent: DataEngineerAgent (Handles data cleaning, preprocessing, and feature engineering)
+2025-12-02 19:30:37 - app.agents.base_agent - INFO - Initialized agent: MLSpecialist (Performs ML training and evaluation)
+2025-12-02 19:30:37 - app.agents.orchestrator_agent - INFO - Orchestrator agent initialized
+2025-12-02 19:30:37 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 19:30:37,797 - agent.EDASpecialist - INFO - [end_execute] (0.0ms) [✓]
+2025-12-02 19:31:35 - app.agents.base_agent - INFO - Initialized agent: Orchestrator (Coordinates data analysis workflow between specialist agents)
+2025-12-02 19:31:35 - app.agents.base_agent - INFO - Initialized agent: EDASpecialist (Performs comprehensive exploratory data analysis)
+2025-12-02 19:31:35 - app.agents.eda_specialist - INFO - EDA Specialist agent initialized
+2025-12-02 19:31:35 - app.agents.base_agent - INFO - Initialized agent: Storyteller (Creates narrative insights and business stories from data)
+2025-12-02 19:31:35 - app.agents.storyteller_agent - INFO - Storyteller agent initialized
+2025-12-02 19:31:35 - app.agents.base_agent - INFO - Initialized agent: QualityInspector (Comprehensive data quality assessment and validation)
+2025-12-02 19:31:35 - app.agents.quality_inspector - INFO - Quality Inspector agent initialized
+2025-12-02 19:31:35 - app.agents.base_agent - INFO - Initialized agent: DataEngineerAgent (Handles data cleaning, preprocessing, and feature engineering)
+2025-12-02 19:31:35 - app.agents.base_agent - INFO - Initialized agent: MLSpecialist (Performs ML training and evaluation)
+2025-12-02 19:31:35 - app.agents.orchestrator_agent - INFO - Orchestrator agent initialized
+2025-12-02 19:31:36 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 19:31:36,313 - agent.EDASpecialist - INFO - [end_execute] (0.0ms) [✓]
+2025-12-02 19:32:16 - app.agents.base_agent - INFO - Initialized agent: Orchestrator (Coordinates data analysis workflow between specialist agents)
+2025-12-02 19:32:16 - app.agents.base_agent - INFO - Initialized agent: EDASpecialist (Performs comprehensive exploratory data analysis)
+2025-12-02 19:32:16 - app.agents.eda_specialist - INFO - EDA Specialist agent initialized
+2025-12-02 19:32:16 - app.agents.base_agent - INFO - Initialized agent: Storyteller (Creates narrative insights and business stories from data)
+2025-12-02 19:32:16 - app.agents.storyteller_agent - INFO - Storyteller agent initialized
+2025-12-02 19:32:16 - app.agents.base_agent - INFO - Initialized agent: QualityInspector (Comprehensive data quality assessment and validation)
+2025-12-02 19:32:16 - app.agents.quality_inspector - INFO - Quality Inspector agent initialized
+2025-12-02 19:32:16 - app.agents.base_agent - INFO - Initialized agent: DataEngineerAgent (Handles data cleaning, preprocessing, and feature engineering)
+2025-12-02 19:32:16 - app.agents.base_agent - INFO - Initialized agent: MLSpecialist (Performs ML training and evaluation)
+2025-12-02 19:32:16 - app.agents.orchestrator_agent - INFO - Orchestrator agent initialized
+2025-12-02 19:32:17 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 19:32:17,583 - agent.EDASpecialist - INFO - [end_execute] (0.0ms) [✓]
+2025-12-02 19:40:15 - app.agents.base_agent - INFO - Initialized agent: Orchestrator (Coordinates data analysis workflow between specialist agents)
+2025-12-02 19:40:15 - app.agents.base_agent - INFO - Initialized agent: EDASpecialist (Performs comprehensive exploratory data analysis)
+2025-12-02 19:40:15 - app.agents.eda_specialist - INFO - EDA Specialist agent initialized
+2025-12-02 19:40:15 - app.agents.base_agent - INFO - Initialized agent: Storyteller (Creates narrative insights and business stories from data)
+2025-12-02 19:40:15 - app.agents.storyteller_agent - INFO - Storyteller agent initialized
+2025-12-02 19:40:15 - app.agents.base_agent - INFO - Initialized agent: QualityInspector (Comprehensive data quality assessment and validation)
+2025-12-02 19:40:15 - app.agents.quality_inspector - INFO - Quality Inspector agent initialized
+2025-12-02 19:40:15 - app.agents.base_agent - INFO - Initialized agent: DataEngineerAgent (Handles data cleaning, preprocessing, and feature engineering)
+2025-12-02 19:40:15 - app.agents.base_agent - INFO - Initialized agent: MLSpecialist (Performs ML training and evaluation)
+2025-12-02 19:40:15 - app.agents.orchestrator_agent - INFO - Orchestrator agent initialized
+2025-12-02 19:40:15 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 19:40:15,797 - agent.EDASpecialist - INFO - [end_execute] (0.0ms) [✓]
+2025-12-02 19:41:09 - app.agents.base_agent - INFO - Initialized agent: Orchestrator (Coordinates data analysis workflow between specialist agents)
+2025-12-02 19:41:09 - app.agents.base_agent - INFO - Initialized agent: EDASpecialist (Performs comprehensive exploratory data analysis)
+2025-12-02 19:41:09 - app.agents.eda_specialist - INFO - EDA Specialist agent initialized
+2025-12-02 19:41:09 - app.agents.base_agent - INFO - Initialized agent: Storyteller (Creates narrative insights and business stories from data)
+2025-12-02 19:41:09 - app.agents.storyteller_agent - INFO - Storyteller agent initialized
+2025-12-02 19:41:09 - app.agents.base_agent - INFO - Initialized agent: QualityInspector (Comprehensive data quality assessment and validation)
+2025-12-02 19:41:09 - app.agents.quality_inspector - INFO - Quality Inspector agent initialized
+2025-12-02 19:41:09 - app.agents.base_agent - INFO - Initialized agent: DataEngineerAgent (Handles data cleaning, preprocessing, and feature engineering)
+2025-12-02 19:41:09 - app.agents.base_agent - INFO - Initialized agent: MLSpecialist (Performs ML training and evaluation)
+2025-12-02 19:41:09 - app.agents.orchestrator_agent - INFO - Orchestrator agent initialized
+2025-12-02 19:41:09 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 19:41:09,940 - agent.EDASpecialist - INFO - [end_execute] (0.0ms) [✓]
+2025-12-02 19:46:02 - app - INFO - Logging configured. Level: INFO
+2025-12-02 19:46:02 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 19:46:03 - app - INFO - Database tables created
+2025-12-02 19:46:03 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 19:48:03 - app - INFO - Logging configured. Level: INFO
+2025-12-02 19:48:03 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 19:48:04 - app - INFO - Database tables created
+2025-12-02 19:48:04 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 19:50:58 - app - INFO - Logging configured. Level: INFO
+2025-12-02 19:50:58 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 19:50:59 - app - INFO - Database tables created
+2025-12-02 19:50:59 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 19:50:59 - app - INFO - Logging configured. Level: INFO
+2025-12-02 19:50:59 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 19:51:00 - app - INFO - Database tables created
+2025-12-02 19:51:00 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 19:51:22 - app.core.state_manager - INFO - Created session 254a9955-36fe-46bb-bf5b-bc67a6e9c421 for user 2 with (150460, 21) dataframe
+2025-12-02 19:51:22,298 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 19:59:49 - app - INFO - Logging configured. Level: INFO
+2025-12-02 19:59:49 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 19:59:50 - app - INFO - Database tables created
+2025-12-02 19:59:50 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 19:59:51 - app - INFO - Logging configured. Level: INFO
+2025-12-02 19:59:51 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 19:59:52 - app - INFO - Database tables created
+2025-12-02 19:59:52 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:00:45 - app.core.state_manager - INFO - Created session 68d887e0-b981-4ac6-b3b8-558e1c89c372 for user 2 with (150460, 21) dataframe
+2025-12-02 20:00:45,286 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 20:00:45,347 - agent.NotebookRoutes - ERROR - [error_notebook_creation_failed] [✗] Error: Can't instantiate abstract class NotebookAgent with abstract method execute
+2025-12-02 20:03:28 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:03:28 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:03:29 - app - INFO - Database tables created
+2025-12-02 20:03:29 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:03:46 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:03:46 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:03:47 - app - INFO - Database tables created
+2025-12-02 20:03:47 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:03:47 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:03:47 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:03:48 - app - INFO - Database tables created
+2025-12-02 20:03:48 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:05:18 - app.core.state_manager - INFO - Created session 414cce13-e30f-461f-bae6-184d49562522 for user 2 with (150460, 21) dataframe
+2025-12-02 20:05:18,816 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 20:05:18 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 20:05:29,312 - agent.NotebookAgent - ERROR - [error_notebook_generation_error] [✗] Error: 'AgentLogger' object has no attribute 'log_llm_call'
+2025-12-02 20:06:56 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:06:56 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:06:57 - app - INFO - Database tables created
+2025-12-02 20:06:57 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:07:09 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:07:09 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:07:10 - app - INFO - Database tables created
+2025-12-02 20:07:10 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:07:11 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:07:11 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:07:12 - app - INFO - Database tables created
+2025-12-02 20:07:12 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:07:26 - app.core.state_manager - INFO - Created session 47bc2738-c89e-4030-ba83-672575676b39 for user 2 with (150460, 21) dataframe
+2025-12-02 20:07:26,502 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 20:07:26 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 20:07:35,464 - agent.NotebookAgent - INFO - [llm_call] (8628.6ms) [✓]
+2025-12-02 20:07:35 - app.core.state_manager - INFO - Added notebook b023833a-ae49-43ad-ac17-8e288be826bf to session 47bc2738-c89e-4030-ba83-672575676b39
+2025-12-02 20:09:34 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 20:09:34 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 20:09:38,230 - agent.NotebookAgent - INFO - [llm_call] (3234.6ms) [✓]
+2025-12-02 20:10:17 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 20:10:17 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 20:10:21,033 - agent.NotebookAgent - INFO - [llm_call] (3633.1ms) [✓]
+2025-12-02 20:11:16 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 20:11:16 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 20:11:21,078 - agent.NotebookAgent - INFO - [llm_call] (5020.8ms) [✓]
+2025-12-02 20:21:46 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:21:46 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:21:47 - app - INFO - Database tables created
+2025-12-02 20:21:47 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:22:03 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:22:03 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:22:04 - app - INFO - Database tables created
+2025-12-02 20:22:04 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:22:04 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:22:04 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:22:05 - app - INFO - Database tables created
+2025-12-02 20:22:05 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:22:34 - app.core.state_manager - INFO - Created session b7075442-c54d-4f92-aa6e-c6eb20c37690 for user 2 with (150460, 21) dataframe
+2025-12-02 20:22:34,924 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 20:22:34 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 20:22:46,864 - agent.NotebookAgent - INFO - [llm_call] (9661.7ms) [✓]
+2025-12-02 20:22:46 - app.core.state_manager - INFO - Added notebook 733b182d-57f7-4b4e-aaf5-5e33685f29b3 to session b7075442-c54d-4f92-aa6e-c6eb20c37690
+2025-12-02 20:23:22 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 20:23:22 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 20:23:28,618 - agent.NotebookAgent - INFO - [llm_call] (5862.2ms) [✓]
+2025-12-02 20:25:51 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 20:25:51 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 20:25:55,654 - agent.NotebookAgent - INFO - [llm_call] (4103.9ms) [✓]
+2025-12-02 20:28:11 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:28:11 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:28:12 - app - INFO - Database tables created
+2025-12-02 20:28:12 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:28:12 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:28:12 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:28:13 - app - INFO - Database tables created
+2025-12-02 20:28:13 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:28:21 - app.core.state_manager - INFO - Created session b2b88392-36a2-4515-a566-6c69278aff3e for user 2 with (150460, 21) dataframe
+2025-12-02 20:28:21,220 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 20:28:21 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 20:28:31,101 - agent.NotebookAgent - INFO - [llm_call] (9267.9ms) [✓]
+2025-12-02 20:28:31 - app.core.state_manager - INFO - Added notebook 6d25d324-d199-495d-810c-37c76b0fcf9a to session b2b88392-36a2-4515-a566-6c69278aff3e
+2025-12-02 20:29:30 - app.core.text_twin_generator - ERROR - Error generating text twin: Object of type bool is not JSON serializable
+2025-12-02 20:29:30 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 20:29:34,787 - agent.NotebookAgent - INFO - [llm_call] (4178.7ms) [✓]
+2025-12-02 20:38:17 - app.core.safe_executor - ERROR - Unexpected execution error: type object 'SafeExecutor' has no attribute '_execution_start_time'
+2025-12-02 20:38:28 - app.core.safe_executor - ERROR - Unexpected execution error: type object 'SafeExecutor' has no attribute '_execution_start_time'
+2025-12-02 20:40:05 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:40:05 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:40:06 - app - INFO - Database tables created
+2025-12-02 20:40:06 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:42:16 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:42:16 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:42:17 - app - INFO - Database tables created
+2025-12-02 20:42:17 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:42:17 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:42:17 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:42:18 - app - INFO - Database tables created
+2025-12-02 20:42:18 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:42:32 - app.core.state_manager - INFO - Created session 4ae68649-7b8f-4134-9b86-ec3fb58dbda0 for user 2 with (150460, 21) dataframe
+2025-12-02 20:42:32,355 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 20:42:32 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 20:42:41,050 - agent.NotebookAgent - INFO - [llm_call] (8061.3ms) [✓]
+2025-12-02 20:42:41 - app.core.state_manager - INFO - Added notebook d8ec2c43-6a5b-4acc-b55a-f8ae61c8434c to session 4ae68649-7b8f-4134-9b86-ec3fb58dbda0
+2025-12-02 20:46:41 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:46:41 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:46:42 - app - INFO - Database tables created
+2025-12-02 20:46:42 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:47:37 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:47:37 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:47:38 - app - INFO - Database tables created
+2025-12-02 20:47:38 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:47:38 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:47:38 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:47:39 - app - INFO - Database tables created
+2025-12-02 20:47:39 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:48:08 - app.core.state_manager - INFO - Created session 4505c45e-e270-48fb-beaf-73173f4a5670 for user 2 with (4009, 12) dataframe
+2025-12-02 20:48:08,744 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded used_cars.csv [✓]
+2025-12-02 20:48:08 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 20:48:16,814 - agent.NotebookAgent - INFO - [llm_call] (7469.1ms) [✓]
+2025-12-02 20:48:16 - app.core.state_manager - INFO - Added notebook 26a1f30c-a235-4eea-8993-f5edb0b7119a to session 4505c45e-e270-48fb-beaf-73173f4a5670
+2025-12-02 20:48:34 - app.core.safe_executor - INFO - Code executed successfully in 0.00s
+2025-12-02 20:50:47 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:50:47 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:50:48 - app - INFO - Database tables created
+2025-12-02 20:50:48 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:51:46 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:51:46 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:51:47 - app - INFO - Database tables created
+2025-12-02 20:51:47 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:51:47 - app - INFO - Logging configured. Level: INFO
+2025-12-02 20:51:47 - app - INFO - Log file: logs/autovizai.log
+2025-12-02 20:51:48 - app - INFO - Database tables created
+2025-12-02 20:51:48 - app - INFO - AutoVizAI 2.0 application initialized
+2025-12-02 20:52:04 - app.core.state_manager - INFO - Created session 605057f0-59b3-464b-9b45-21d5cfd10214 for user 2 with (150460, 21) dataframe
+2025-12-02 20:52:04,101 - agent.NotebookRoutes - INFO - [file_uploaded] Uploaded deliveries.csv [✓]
+2025-12-02 20:52:04 - app.agents.base_agent - INFO - Initialized agent: NotebookAgent (Generates and modifies notebooks using AI)
+2025-12-02 20:52:12,336 - agent.NotebookAgent - INFO - [llm_call] (7598.0ms) [✓]
+2025-12-02 20:52:12 - app.core.state_manager - INFO - Added notebook 45a398b5-1e16-4b57-8ea8-ab6e93a4a58c to session 605057f0-59b3-464b-9b45-21d5cfd10214
+2025-12-02 20:52:26 - app.core.safe_executor - INFO - Code executed successfully in 0.05s
+2025-12-02 20:52:30 - app.core.safe_executor - INFO - Code executed successfully in 0.04s
+2025-12-02 20:52:35 - app.core.safe_executor - INFO - Code executed successfully in 0.04s
+2025-12-02 20:52:38 - app.core.safe_executor - INFO - Code executed successfully in 0.04s
